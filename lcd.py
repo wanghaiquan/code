@@ -30,6 +30,7 @@ def destroy():
 if __name__ == "__main__":
     try:
         setup()
+        loop()
         while True:
             pass
     except KeyboardInterrupt:
