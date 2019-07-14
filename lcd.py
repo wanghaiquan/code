@@ -11,7 +11,7 @@ def setup():
 
 
 def loop():
-    space = '     '
+    space = '                '
     greetings = 'i love u li gui ying! thank u for your company.^_^'
     greetings = space + greetings
     while True:
