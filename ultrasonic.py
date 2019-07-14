@@ -46,7 +46,7 @@ def loop():
             print '水马上就满了', dis, 'cm'
         print '目标距离还剩', dis, 'cm'
         print ''
-        LCD1602.write(0, 0, dis)
+        ##LCD1602.write(0, 0, dis)
         time.sleep(0.3)
 
 
