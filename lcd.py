@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import LCD1602
+import lcd1602 as LCD1602
 import time
 
 
