@@ -15,7 +15,7 @@ def setup():
     GPIO.setup(ECHO, GPIO.IN)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '    haiquan     ')
-    LCD1602.write(1, 1, 'Hello, World!')
+    LCD1602.write(1, 1, 'distance')
 
 
 def distance():
@@ -46,7 +46,7 @@ def loop():
             print '水马上就满了', dis, 'cm'
         print '目标距离还剩', dis, 'cm'
         print ''
-        LCD1602.write(0, 0, str(dis))
+        LCD1602.write(0, 0,  str(dis))
         time.sleep(0.3)
 
 
