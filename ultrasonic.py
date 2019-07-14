@@ -1,3 +1,4 @@
+# 超声波距离测试
 # coding=utf-8
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
@@ -37,7 +38,7 @@ def loop():
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
-        if (exactDis == 3):
+        if (exactDis == 2):
             print '水马上就满了', dis, 'cm'
         print '目标距离还剩', dis, 'cm'
         print ''
