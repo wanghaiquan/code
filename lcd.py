@@ -41,6 +41,7 @@ if __name__ == '__main__':
     while(1):
         lcd.clear()
         lcd.message(get_ip_info())
+        print get_ip_info()
         sleep(5)
 
         lcd.clear()
