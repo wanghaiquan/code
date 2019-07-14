@@ -1,4 +1,3 @@
-# 超声波距离测试
 # coding=utf-8
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
