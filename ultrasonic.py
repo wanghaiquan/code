@@ -8,9 +8,6 @@ import time
 TRIG = 11
 ECHO = 12
 
-lcd = lcd1602()
-lcd.clear()
-
 
 def setup():
     GPIO.setmode(GPIO.BOARD)
