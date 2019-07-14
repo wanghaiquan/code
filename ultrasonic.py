@@ -38,7 +38,7 @@ def distance():
 
 def loop():
     while True:
-        LCD1602.clear()
+        # LCD1602.clear()
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
