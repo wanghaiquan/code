@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import logging as LOG
-from lcd1602 import *
+import lcd1602 as LCD1602
 import math
 import time
 TRIG = 11
@@ -13,6 +13,9 @@ def setup():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
+    LCD1602.init(0x27, 1)  # init(slave address, background light)
+    LCD1602.write(0, 0, '    haiquan     ')
+    LCD1602.write(1, 1, 'Hello, World!')
 
 
 def distance():
