@@ -19,7 +19,7 @@ def loop():
         for i in range(0, len(greetings)):
             LCD1602.write(0, 0, tmp)
             tmp = tmp[1:]
-            time.sleep(0.8)
+            time.sleep(0.3)
             LCD1602.clear()
 
 
