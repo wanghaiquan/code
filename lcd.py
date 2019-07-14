@@ -11,8 +11,8 @@ def setup():
 
 
 def loop():
-    space = '                '
-    greetings = 'Thank you for buying SunFounder Sensor Kit for Raspberry! ^_^'
+    space = '     '
+    greetings = 'i love u li gui ying! thank u for your company.^_^'
     greetings = space + greetings
     while True:
         tmp = greetings
