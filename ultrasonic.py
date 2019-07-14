@@ -2,10 +2,14 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import logging as LOG
+from lcd1602 import *
 import math
 import time
 TRIG = 11
 ECHO = 12
+
+lcd = lcd1602()
+lcd.clear()
 
 
 def setup():
@@ -40,7 +44,9 @@ def loop():
         if (exactDis == 2):
             print '水马上就满了', dis, 'cm'
         print '目标距离还剩', dis, 'cm'
+        lcd.message('GPU: ' + dis)
         print ''
+
         time.sleep(0.3)
 
 
