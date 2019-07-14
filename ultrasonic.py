@@ -1,7 +1,7 @@
 # coding=utf-8
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
-import LCD1602
+import lcd1602
 import logging as LOG
 import math
 import time
