@@ -33,7 +33,7 @@ def get_mem_info():
     return 'MEM:\n    ' + free + ' / ' + total + ' M'
 
 
-lcd = lcd1602()
+lcd = lcd1602(0x27, 1)
 lcd.clear()
 
 if __name__ == '__main__':
@@ -41,7 +41,6 @@ if __name__ == '__main__':
     while(1):
         lcd.clear()
         lcd.message(get_ip_info())
-        print get_ip_info()
         sleep(5)
 
         lcd.clear()
