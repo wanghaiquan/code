@@ -38,6 +38,7 @@ def distance():
 
 def loop():
     while True:
+        LCD1602.clear()
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
@@ -45,7 +46,7 @@ def loop():
             print '水马上就满了', dis, 'cm'
         print '目标距离还剩', dis, 'cm'
         print ''
-
+        LCD1602.write(0, 0, dis)
         time.sleep(0.3)
 
 
