@@ -3,11 +3,11 @@
 import RPi.GPIO as GPIO
 
 # 定义用于 LED 的针脚 BCM 编号
-LED_R = 16
-LED_G = 19
+LED_R = 10
+LED_G = 13
 
 # 设定针脚编号为 BCM 模式
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 
 # 设定 LED 针脚可用于输出
 GPIO.setup(LED_R, GPIO.OUT)
