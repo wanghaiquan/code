@@ -1,28 +1,19 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as gpio
 import time
-
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.OUT)
-GPIO.setup(12, GPIO.OUT)
-
-p1 = GPIO.PWM(11, 100)
-p2 = GPIO.PWM(12, 100)
-p1.start(0)
-p2.start(0)
-
+gpio.setmode(gpio.BCM)
+gpio.setup(18, gpio.OUT)
+pwm_led = gpio.PWM(18, 500)
+pwm_led.start(0)
+print 'pwm start'
 try:
     while True:
-        for dc in range(0, 101, 5):
-            p1.ChangeDutyCycle(dc)
-            p2.ChangeDutyCycle(dc)
-            time.sleep(0.1)
-        for dc in range(100, -1, -5):
-            p1.ChangeDutyCycle(dc)
-            p2.ChangeDutyCycle(dc)
-            time.sleep(0.1)
+        for i in range(0, 100):
+            pwm_led.ChangeDutyCycle(i)
+            time.sleep(0.05)
+        for i in range(100, 0):
+            pwm_led.ChangeDutyCycle(i)
+            time.sleep(0.05)
 except KeyboardInterrupt:
-    pass
-
-p1.stop()
-p2.stop()
-GPIO.cleanup()
+    pwm_led.stop()
+    gpio.cleanup()
+    print 'pwm stop and gpio clean up by ctrl + c'
