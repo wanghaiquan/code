@@ -1,19 +1,46 @@
-import RPi.GPIO as gpio
+#!/usr/bin/env python
+import RPi.GPIO as GPIO
 import time
-gpio.setmode(gpio.BCM)
-gpio.setup(18, gpio.OUT)
-pwm_led = gpio.PWM(18, 500)
-pwm_led.start(0)
-print 'pwm start'
-try:
+
+pins = {'pin_R': 11, 'pin_G': 12}  # pins is a dict
+sleep_time = 0.5
+
+GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+for i in pins:
+    GPIO.setup(pins[i], GPIO.OUT)   # Set pins' mode is output
+    GPIO.output(pins[i], GPIO.LOW)  # Set pins to low(0V) to off led
+    print("i is ", i, pins[i])
+
+
+def loop():
     while True:
-        for i in range(0, 100):
-            pwm_led.ChangeDutyCycle(i)
-            time.sleep(0.05)
-        for i in range(100, 0):
-            pwm_led.ChangeDutyCycle(i)
-            time.sleep(0.05)
-except KeyboardInterrupt:
-    pwm_led.stop()
-    gpio.cleanup()
-    print 'pwm stop and gpio clean up by ctrl + c'
+        # Set pins to high(+3.3V) to on led
+        GPIO.output(pins['pin_R'], GPIO.HIGH)
+        print(pins['pin_R'], " Red Led is On...")
+        time.sleep(sleep_time)
+
+        GPIO.output(pins['pin_R'], GPIO.LOW)
+        print(pins['pin_R'], " Red Led is off...")
+        time.sleep(sleep_time)
+
+        GPIO.output(pins['pin_G'], GPIO.HIGH)
+        print(pins['pin_G'], " Green Led is On...")
+        time.sleep(sleep_time)
+
+        GPIO.output(pins['pin_G'], GPIO.LOW)
+        print(pins['pin_G'], " Green Led is off...")
+        time.sleep(sleep_time)
+
+
+def destroy():
+
+    for i in pins:
+        GPIO.output(pins[i], GPIO.LOW)    # Turn off all leds
+    GPIO.cleanup()
+
+
+if __name__ == "__main__":
+    try:
+        loop()
+    except KeyboardInterrupt:
+        destroy()
