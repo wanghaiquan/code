@@ -40,7 +40,7 @@ def distance():
 def loop():
     while True:
         LCD1602.clear()
-        get_time_now = datetime.now().strftime('%H:%M:%S')
+        get_time_now = datetime.now().strftime('   %H:%M:%S')
 
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
