@@ -12,8 +12,8 @@ GPIO.setup(LED_G, GPIO.OUT)
 pwm_r = GPIO.PWM(LED_R, 2000)
 pwm_g = GPIO.PWM(LED_G, 2000)
 
-GPIO.output(LED_R, GPIO.LOW)
-GPIO.output(LED_G, GPIO.LOW)
+GPIO.output(LED_R, GPIO.HIGH)
+GPIO.output(LED_G, GPIO.HIGH)
 
 pwm_r.start(0)
 pwm_g.start(0)
