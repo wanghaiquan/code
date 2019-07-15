@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
-LED_R = 17
-LED_G = 18
+LED_R = 13
+LED_G = 14
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(LED_R, GPIO.OUT)
 GPIO.setup(LED_G, GPIO.OUT)
