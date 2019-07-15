@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 
-pins = {'pin_R': 11, 'pin_G': 12}  # pins is a dict
+pins = {'pin_R': 11, 'pin_G': 12}  # pins is a dicts
 sleep_time = 0.5
 
 GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
