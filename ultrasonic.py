@@ -46,7 +46,7 @@ def loop():
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
         if (exactDis == 2):
-            print '水马上就满了', dis, 'cm'
+            print '马上要撞上了', dis, 'cm'
             LCD1602.write(0, 0,  str(dis))
             LCD1602.write(1, 1, get_time_now)
         else:
