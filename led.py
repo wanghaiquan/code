@@ -25,12 +25,12 @@ if __name__ == "__main__":
             for i in range(100):
                 pwm_r.ChangeDutyCycle(i)
                 pwm_g.ChangeDutyCycle(100 - i)
-                time.sleep(.25)
+                time.sleep(0.25)
 
             for i in range(100):
                 pwm_r.ChangeDutyCycle(100 - i)
                 pwm_g.ChangeDutyCycle(i)
-                time.sleep(.25)
+                time.sleep(0.25)
     except KeyboardInterrupt:
         pwm_r.stop()
         pwm_g.stop()
