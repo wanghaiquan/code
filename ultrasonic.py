@@ -38,9 +38,10 @@ def distance():
 
 
 def loop():
-    get_time_now = datetime.now().strftime('    %H:%M:%S\n   %Y-%m-%d')
     while True:
         LCD1602.clear()
+        get_time_now = datetime.now().strftime('    %H:%M:%S\n   %Y-%m-%d')
+
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
