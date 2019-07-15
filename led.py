@@ -1,38 +1,27 @@
+# 导入 GPIO 库
 import RPi.GPIO as GPIO
-import time
 
+# 定义用于 LED 的针脚 BCM 编号
 LED_R = 21
 LED_G = 20
 
+# 设定针脚编号为 BCM 模式
 GPIO.setmode(GPIO.BCM)
 
+# 设定 LED 针脚可用于输出
 GPIO.setup(LED_R, GPIO.OUT)
 GPIO.setup(LED_G, GPIO.OUT)
 
-pwm_r = GPIO.PWM(LED_R, 2000)
-pwm_g = GPIO.PWM(LED_G, 2000)
-
-GPIO.output(LED_R, GPIO.LOW)
-GPIO.output(LED_G, GPIO.LOW)
-
-pwm_r.start(0)
-pwm_g.start(100)
-
-
+# 关于 __name__ == "__main__"：
+# 如果是直接运行本代码，而不是其他 Python 代码调用本文件的话，则会执行
 if __name__ == "__main__":
     try:
         while True:
-            for i in range(100):
-                pwm_r.ChangeDutyCycle(i)
-                pwm_g.ChangeDutyCycle(100 - i)
-                time.sleep(.25)
-
-            for i in range(100):
-                pwm_r.ChangeDutyCycle(100 - i)
-                pwm_g.ChangeDutyCycle(i)
-                time.sleep(.25)
+            # 给两个针脚电压
+            GPIO.output(LED_R, GPIO.HIGH)
+            GPIO.output(LED_G, GPIO.HIGH)
     except KeyboardInterrupt:
-        pwm_r.stop()
-        pwm_g.stop()
+        # 检测到中断信号后，关闭 GPIO 通道以供下次使用
         GPIO.cleanup()
+        # 退出返回状态代码 6
         exit(6)
