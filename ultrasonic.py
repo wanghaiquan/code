@@ -39,7 +39,7 @@ def distance():
 
 def loop():
     while True:
-
+        LCD1602.clear()
         get_time_now = datetime.now().strftime('%H:%M:%S')
 
         dis = distance()
@@ -54,7 +54,7 @@ def loop():
             LCD1602.write(1, 1, get_time_now)
         print '目标距离还剩', dis, 'cm'
         print ''
-        LCD1602.clear()
+
         time.sleep(0.3)
 
 
