@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import logging as LOG
 import lcd1602 as LCD1602
+from datetime import *
 import math
 import time
 TRIG = 11
@@ -37,6 +38,7 @@ def distance():
 
 
 def loop():
+    get_time_now = datetime.now().strftime('    %H:%M:%S\n   %Y-%m-%d')
     while True:
         LCD1602.clear()
         dis = distance()
@@ -45,10 +47,10 @@ def loop():
         if (exactDis == 2):
             print '水马上就满了', dis, 'cm'
             LCD1602.write(0, 0,  str(dis))
-            LCD1602.write(1, 1, '    full')
+            LCD1602.write(1, 1, get_time_now)
         else:
             LCD1602.write(0, 0,  str(dis))
-            LCD1602.write(1, 1, '   empty')
+            LCD1602.write(1, 1, get_time_now)
         print '目标距离还剩', dis, 'cm'
         print ''
 
