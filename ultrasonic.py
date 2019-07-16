@@ -48,10 +48,10 @@ def loop():
         if (exactDis == 2):
             print '马上要撞上了', dis, 'cm'
             LCD1602.write(0, 0,  str(dis))
-            LCD1602.write(1, 1, get_time_now)
+            LCD1602.write(1, 1, 'full')
         else:
             LCD1602.write(0, 0,  str(dis))
-            LCD1602.write(1, 1, get_time_now)
+            LCD1602.write(1, 1, 'empty')
         print '目标距离还剩', dis, 'cm'
         print ''
 
