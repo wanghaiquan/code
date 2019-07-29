@@ -168,7 +168,8 @@ class HotwordDetector(object):
 
             ans = self.detector.RunDetection(data)
             if ans == -1:
-                logger.warning("Error initializing streams or reading audio data")
+                logger.warning(
+                    "Error initializing streams or reading audio data")
             elif ans > 0:
                 message = "Keyword " + str(ans) + " detected at time: "
                 message += time.strftime("%Y-%m-%d %H:%M:%S",
@@ -185,6 +186,6 @@ class HotwordDetector(object):
         Terminate audio stream. Users cannot call start() again to detect.
         :return: None
         """
-        self.stream_in.stop_stream()
-        self.stream_in.close()
-        self.audio.terminate()
+        # self.stream_in.stop_stream()
+        # self.stream_in.close()
+        # self.audio.terminate()
