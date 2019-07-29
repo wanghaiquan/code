@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import snowboydecoder
+from snowboy import snowboydecoder
 
 
 def detected_callback():
