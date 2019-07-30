@@ -45,8 +45,8 @@ def loop():
         dis = distance()
         LOG.debug("距离还剩: %s" % dis)
         exactDis = int(dis)
-        if (exactDis == 20):
-            print '马上要撞上了', dis, 'cm'
+        if (exactDis == 2):
+            print '马上要满了', dis, 'cm'
             LCD1602.write(0, 0,  str(dis))
             LCD1602.write(1, 1, 'full')
         else:
