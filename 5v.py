@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 import time
 
-PORT = 26
+PORT = 17
 
 
 def reset():
