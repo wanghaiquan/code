@@ -44,7 +44,7 @@ def main():
         pixels.think()
         # GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
-        time.sleep(10)
+        time.sleep(2)
 
 
 def destroy():
