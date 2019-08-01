@@ -18,4 +18,8 @@ if __name__ == '__main__':
     pixels.pattern = GoogleHomeLedPattern(show=pixels.show)
     detector = snowboydecoder.HotwordDetector(
         "yingzi.pmdl", sensitivity=0.5, audio_gain=1)
+    callbacks = [lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DING),
+                 lambda: snowboydecoder.play_audio_file(snowboydecoder.DETECT_DONG)]
+    print('Listening... Press Ctrl+C to exit')
     detector.start(detected_callback)
+    detector.terminate()
