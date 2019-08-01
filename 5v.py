@@ -13,3 +13,4 @@ GPIO.setup(17, GPIO.OUT)
 
 # 让GPIO14输出低电平（风扇启动）
 GPIO.output(17, False)
+GPIO.cleanup()
