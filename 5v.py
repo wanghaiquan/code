@@ -1,19 +1,19 @@
-#!/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-num = 17  # 树莓派针脚编号
+num2 = 18
 
-GPIO.setup(num, GPIO.OUT)
-id = GPIO.input(num)
+GPIO.setup(num2, GPIO.OUT)
+state = GPIO.input(num2)
 
-GPIO.output(num, GPIO.LOW)
-
-time.sleep(10)
-
-GPIO.output(num, GPIO.HIGH)
-
-GPIO.cleanup()
+if (state == 1):
+    GPIO.output(num2, GPIO.LOW)
+    print "已打开设备"
+if (state == 0):
+    GPIO.output(num2, GPIO.HIGH)
+    print "已关闭设备"
