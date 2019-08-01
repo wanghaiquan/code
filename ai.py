@@ -8,17 +8,10 @@ from google_home_led_pattern import GoogleHomeLedPattern
 
 def detected_callback():
     print "收到了...."
-    while True:
 
-        try:
-            pixels.wakeup()
-            time.sleep(3)
-            pixels.off()
-        except KeyboardInterrupt:
-            break
-
+    pixels.wakeup()
+    time.sleep(3)
     pixels.off()
-    time.sleep(1)
 
 
 if __name__ == '__main__':
