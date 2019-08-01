@@ -26,7 +26,7 @@ def opendoor():
 
 
 def destroy():
-    pass
+    reset()
 
 
 if __name__ == "__main__":
