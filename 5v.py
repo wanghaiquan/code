@@ -1,19 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import sys
 import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
+args = sys.argv
+pin = 17  # GPIO PIN 17
+ctl = args[1]  # Argument 1 for ON/OFF
+if (int(ctl) == 1):
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
 
-num2 = 11
-
-GPIO.setup(num2, GPIO.OUT)
-state = GPIO.input(num2)
-
-if (state == 1):
-    GPIO.output(num2, GPIO.LOW)
-    print "已打开设备"
-if (state == 0):
-    GPIO.output(num2, GPIO.HIGH)
-    print "已关闭设备"
+if (int(ctl) == 0):
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
