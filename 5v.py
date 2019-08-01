@@ -4,9 +4,9 @@
 import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 
-num2 = 17
+num2 = 11
 
 GPIO.setup(num2, GPIO.OUT)
 state = GPIO.input(num2)
