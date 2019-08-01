@@ -19,7 +19,7 @@ def print_message():
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(RelayPin, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(RelayPin, GPIO.OUT)
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
 
         # disconnect
         pixels.off()
-        GPIO.output(RelayPin, GPIO.LOW)
+        # GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
         time.sleep(2)
 
@@ -42,14 +42,15 @@ def main():
         print ('')
         # connect
         pixels.think()
-        GPIO.output(RelayPin, GPIO.HIGH)
+        # GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
         time.sleep(2)
 
 
 def destroy():
     # turn off relay
-    GPIO.output(RelayPin, GPIO.LOW)
+    # GPIO.output(RelayPin, GPIO.LOW)
+    GPIO.output(RelayPin, False)
     # release resource
     GPIO.cleanup()
 
