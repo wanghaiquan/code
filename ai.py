@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from snowboy import snowboydecoder
+from 4mice_hat.pixels import Pixels, pixels
+from alexa_led_pattern import AlexaLedPattern
+from google_home_led_pattern import GoogleHomeLedPattern
 
 
 def detected_callback():
