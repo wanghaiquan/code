@@ -4,8 +4,7 @@ import RPi.GPIO as GPIO
 import time
 
 # set BCM_GPIO 17 as relay pin
-RelayPin = 17
-
+RelayPin = 16
 # print message at the begining ---custom function
 
 
