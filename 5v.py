@@ -9,32 +9,15 @@ RelayPin = 17
 
 
 def print_message():
-    print ('|**********************************************|')
-    print ('|                     Relay                    |')
-    print ('|        -----------------------------------   |')
-    print ('|        GPIO0 connect to relay control pin    |')
-    print ('|        led connect to relay NormalOpen pin   |')
-    print ('|        5V connect to relay COM pin           |')
-    print ('|        Make relay to control a led           |')
-    print ('|        -----------------------------------   |')
-    print ('|                                              |')
-    print ('|                                        OSOYOO|')
-    print ('|**********************************************|\n')
     print ('Program is running...')
     print ('Please press Ctrl+C to end the program...')
     print ('\n')
 
-# setup function for some setup---custom function
-
 
 def setup():
     GPIO.setwarnings(False)
-    # set the gpio modes to BCM numbering
     GPIO.setmode(GPIO.BCM)
-    # set RelayPin's mode to output,and initial level to LOW(0V)
     GPIO.setup(RelayPin, GPIO.OUT, initial=GPIO.LOW)
-
-# main function
 
 
 def main():
@@ -42,7 +25,7 @@ def main():
     print_message()
     while True:
         print ('|******************|')
-        print ('|  ...Relay close  |')
+        print ('|  ...关闭电源  |')
         print ('|******************|\n')
 
         # disconnect
@@ -52,15 +35,13 @@ def main():
         time.sleep(10)
 
         print ('|*****************|')
-        print ('|  Relay open...  |')
+        print ('|  打开电源...  |')
         print ('|*****************|\n')
         print ('')
         # connect
         GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
         time.sleep(10)
-
-# define a destroy function for clean up everything after the script finished
 
 
 def destroy():
@@ -76,6 +57,5 @@ if __name__ == '__main__':
     setup()
     try:
         main()
-    # when 'Ctrl+C' is pressed,child program destroy() will be executed.
     except KeyboardInterrupt:
         destroy()
