@@ -1,39 +1,15 @@
-# coding=utf-8
-# 导入 GPIO 库
-import RPi.GPIO as GPIO
+#!/usr/bin/env python
+# encoding: utf-8
 
+import RPi.GPIO as GPIO
 import time
 
-PORT = 17
+# 指定GPIO口的选定模式为GPIO引脚编号模式（而非主板编号模式）
+GPIO.setmode(GPIO.BCM)
 
+# 指定GPIO14（就是LED长针连接的GPIO针脚）的模式为输出模式
+# 如果上面GPIO口的选定模式指定为主板模式的话，这里就应该指定8号而不是14号。
+GPIO.setup(17, GPIO.OUT)
 
-def reset():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(PORT, GPIO.IN)
-
-
-def initcontroller():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(PORT, GPIO.OUT)
-    GPIO.output(PORT, True)
-
-
-def opendoor():
-    GPIO.setup(PORT, GPIO.OUT)
-    GPIO.output(PORT, False)
-    time.sleep(2)
-    GPIO.output(PORT, True)
-
-
-def destroy():
-    reset()
-
-
-if __name__ == "__main__":
-    try:
-        initcontroller()
-        opendoor()
-        while True:
-            pass
-    except KeyboardInterrupt:
-        destroy()
+# 让GPIO14输出低电平（风扇启动）
+GPIO.output(17, False)
