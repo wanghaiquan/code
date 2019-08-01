@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import time
 from snowboy import snowboydecoder
 from pixels import Pixels, pixels
 from alexa_led_pattern import AlexaLedPattern
@@ -7,6 +8,22 @@ from google_home_led_pattern import GoogleHomeLedPattern
 
 def detected_callback():
     print "收到了...."
+    while True:
+
+        try:
+            pixels.wakeup()
+            time.sleep(3)
+            pixels.think()
+            time.sleep(3)
+            pixels.speak()
+            time.sleep(6)
+            pixels.off()
+            time.sleep(3)
+        except KeyboardInterrupt:
+            break
+
+    pixels.off()
+    time.sleep(1)
 
 
 if __name__ == '__main__':
