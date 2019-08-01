@@ -2,15 +2,18 @@
 # encoding: utf-8
 
 import RPi.GPIO as GPIO
-import time
-
-# 指定GPIO口的选定模式为GPIO引脚编号模式（而非主板编号模式）
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-# 指定GPIO14（就是LED长针连接的GPIO针脚）的模式为输出模式
-# 如果上面GPIO口的选定模式指定为主板模式的话，这里就应该指定8号而不是14号。
-GPIO.setup(17, GPIO.OUT)
+num = 17  # 树莓派针脚编号
 
-# 让GPIO14输出低电平（风扇启动）
-GPIO.output(17, False)
+GPIO.setup(num, GPIO.OUT)
+id = GPIO.input(num)
+
+if (id == 1):
+    GPIO.output(num, GPIO.LOW)
+    print "已打开设备"
+if (id == 0):
+    GPIO.output(num, GPIO.HIGH)
+    print "已关闭设备"
 GPIO.cleanup()
