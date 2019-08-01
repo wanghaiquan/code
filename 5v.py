@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import time
 
 # set BCM_GPIO 17 as relay pin
-RelayPin = 11
+RelayPin = 17
 
 # print message at the begining ---custom function
 
@@ -31,7 +31,7 @@ def print_message():
 def setup():
     GPIO.setwarnings(False)
     # set the gpio modes to BCM numbering
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     # set RelayPin's mode to output,and initial level to LOW(0V)
     GPIO.setup(RelayPin, GPIO.OUT, initial=GPIO.LOW)
 
