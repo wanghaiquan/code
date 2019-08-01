@@ -13,12 +13,7 @@ def detected_callback():
         try:
             pixels.wakeup()
             time.sleep(3)
-            pixels.think()
-            time.sleep(3)
-            pixels.speak()
-            time.sleep(6)
             pixels.off()
-            time.sleep(3)
         except KeyboardInterrupt:
             break
 
