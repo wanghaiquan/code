@@ -34,7 +34,7 @@ def main():
         pixels.off()
         GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
-        time.sleep(1)
+        time.sleep(2)
 
         print ('|*****************|')
         print ('|  打开电源...  |')
@@ -44,7 +44,7 @@ def main():
         pixels.think()
         GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
-        time.sleep(1)
+        time.sleep(2)
 
 
 def destroy():
