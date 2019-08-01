@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 import RPi.GPIO as GPIO
 import time
-
+from pixels import Pixels, pixels
+from alexa_led_pattern import AlexaLedPattern
+from google_home_led_pattern import GoogleHomeLedPattern
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
 # print message at the begining ---custom function
@@ -29,7 +31,7 @@ def main():
         print ('|******************|\n')
 
         # disconnect
-
+        pixels.off()
         GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
         time.sleep(1)
@@ -39,6 +41,7 @@ def main():
         print ('|*****************|\n')
         print ('')
         # connect
+        pixels.think()
         GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
         time.sleep(1)
