@@ -32,7 +32,7 @@ def main():
 
         GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
-        time.sleep(10)
+        time.sleep(5)
 
         print ('|*****************|')
         print ('|  打开电源...  |')
@@ -41,7 +41,7 @@ def main():
         # connect
         GPIO.output(RelayPin, GPIO.HIGH)
         GPIO.output(RelayPin, True)
-        time.sleep(10)
+        time.sleep(5)
 
 
 def destroy():
