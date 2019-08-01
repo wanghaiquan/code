@@ -48,7 +48,7 @@ def main():
 
         # disconnect
         GPIO.output(RelayPin, GPIO.LOW)
-        time.sleep(5)
+        time.sleep(2)
 
         print ('|*****************|')
         print ('|  Relay open...  |')
@@ -56,7 +56,7 @@ def main():
         print ('')
         # connect
         GPIO.output(RelayPin, GPIO.HIGH)
-        time.sleep(5)
+        time.sleep(2)
 
 # define a destroy function for clean up everything after the script finished
 
