@@ -1,78 +1,18 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# encoding: utf-8
+
 import RPi.GPIO as GPIO
 import time
 
-# set BCM_GPIO 17 as relay pin
-RelayPin = 17
-# print message at the begining ---custom function
+# 指定GPIO口的选定模式为GPIO引脚编号模式（而非主板编号模式）
+GPIO.setmode(GPIO.BCM)
 
+# 指定GPIO14（就是LED长针连接的GPIO针脚）的模式为输出模式
+# 如果上面GPIO口的选定模式指定为主板模式的话，这里就应该指定8号而不是14号。
+GPIO.setup(17, GPIO.OUT)
 
-def print_message():
-    print ('|**********************************************|')
-    print ('|                     Relay                    |')
-    print ('|        -----------------------------------   |')
-    print ('|        GPIO0 connect to relay control pin    |')
-    print ('|        led connect to relay NormalOpen pin   |')
-    print ('|        5V connect to relay COM pin           |')
-    print ('|        Make relay to control a led           |')
-    print ('|        -----------------------------------   |')
-    print ('|                                              |')
-    print ('|                                        OSOYOO|')
-    print ('|**********************************************|\n')
-    print ('Program is running...')
-    print ('Please press Ctrl+C to end the program...')
-    print ('\n')
+# 让GPIO14输出低电平（风扇启动）
+GPIO.output(17, False)
 
-# setup function for some setup---custom function
-
-
-def setup():
-    GPIO.setwarnings(False)
-    # set the gpio modes to BCM numbering
-    GPIO.setmode(GPIO.BCM)
-    # set RelayPin's mode to output,and initial level to LOW(0V)
-    GPIO.setup(RelayPin, GPIO.OUT, initial=GPIO.LOW)
-
-# main function
-
-
-def main():
-    #print info
-    print_message()
-    while True:
-        print ('|******************|')
-        print ('|  ...Relay close  |')
-        print ('|******************|\n')
-
-        # disconnect
-        GPIO.output(RelayPin, GPIO.LOW)
-        time.sleep(10)
-
-        print ('|*****************|')
-        print ('|  Relay open...  |')
-        print ('|*****************|\n')
-        print ('')
-        # connect
-        GPIO.output(RelayPin, GPIO.HIGH)
-        time.sleep(10)
-
-# define a destroy function for clean up everything after the script finished
-
-
-def destroy():
-    # turn off relay
-    GPIO.output(RelayPin, GPIO.LOW)
-    # release resource
-    GPIO.cleanup()
-
-
-#
-# if run this script directly ,do:
-if __name__ == '__main__':
-    setup()
-    try:
-        main()
-    # when 'Ctrl+C' is pressed,child program destroy() will be executed.
-    except KeyboardInterrupt:
-        destroy()
+# 最后清理GPIO口,清理完毕后就没有电位了（不做也可以，建议每次程序结束时清理一下，好习惯）
+# GPIO.cleanup()
