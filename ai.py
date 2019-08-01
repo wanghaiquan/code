@@ -9,6 +9,8 @@ def detected_callback():
     print "收到了...."
 
 
-detector = snowboydecoder.HotwordDetector(
-    "yingzi.pmdl", sensitivity=0.5, audio_gain=1)
-detector.start(detected_callback)
+if __name__ == '__main__':
+    pixels.pattern = GoogleHomeLedPattern(show=pixels.show)
+    detector = snowboydecoder.HotwordDetector(
+        "yingzi.pmdl", sensitivity=0.5, audio_gain=1)
+    detector.start(detected_callback)
