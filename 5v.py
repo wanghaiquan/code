@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-num2 = 18
+num2 = 17
 
 GPIO.setup(num2, GPIO.OUT)
 state = GPIO.input(num2)
