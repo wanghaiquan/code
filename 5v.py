@@ -36,30 +36,30 @@ def get_humidity():
 def main():
     #print info
     print_message()
-    # while True:
-    #     humidity, temperature = get_humidity()
-    #     print humidity, temperature
     while True:
-        print ('|******************|')
-        print ('|  ...关闭电源  |')
-        print ('|******************|\n')
         humidity, temperature = get_humidity()
-        print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
-        # disconnect
-        pixels.off()
-        # GPIO.output(RelayPin, GPIO.LOW)
-        GPIO.output(RelayPin, False)
-        time.sleep(2)
-
-        print ('|*****************|')
-        print ('|  打开电源...  |')
-        print ('|*****************|\n')
-        print ('')
-        # connect
-        pixels.think()
-        # GPIO.output(RelayPin, GPIO.HIGH)
-        GPIO.output(RelayPin, True)
-        time.sleep(1)
+        print humidity, temperature
+    # while True:
+    #     print ('|******************|')
+    #     print ('|  ...关闭电源  |')
+    #     print ('|******************|\n')
+    #     humidity, temperature = get_humidity()
+    #     print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
+    #     # disconnect
+    #     pixels.off()
+    #     # GPIO.output(RelayPin, GPIO.LOW)
+    #     GPIO.output(RelayPin, False)
+    #     time.sleep(2)
+    #
+    #     print ('|*****************|')
+    #     print ('|  打开电源...  |')
+    #     print ('|*****************|\n')
+    #     print ('')
+    #     # connect
+    #     pixels.think()
+    #     # GPIO.output(RelayPin, GPIO.HIGH)
+    #     GPIO.output(RelayPin, True)
+    #     time.sleep(1)
 
 
 def destroy():
