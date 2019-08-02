@@ -3,7 +3,7 @@
 import time
 import RPi.GPIO as GPIO
 import Adafruit_DHT
-
+import lcd1602 as LCD1602
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
 # 温控 pin
@@ -21,7 +21,10 @@ def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(RelayPin, GPIO.OUT)
-
+    LCD1602.init(0x27, 1)  # init(slave address, background light)
+    LCD1602.write(0, 0, '    HI     ')
+    LCD1602.write(1, 1, 'Technology changes the world')
+    time.sleep(2)
 # 求当前温湿度
 
 
@@ -37,6 +40,16 @@ def main():
     while True:
         humidity, temperature = get_humidity()
         print humidity, temperature
+        space = '                '
+        greetings = '{0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity)
+        greetings = space + greetings
+        while True:
+            tmp = greetings
+            for i in range(0, len(greetings)):
+                LCD1602.write(0, 0, tmp)
+                tmp = tmp[1:]
+                time.sleep(0.8)
+                LCD1602.clear()
     # while True:
     #     print ('|******************|')
     #     print ('|  ...关闭电源  |')
