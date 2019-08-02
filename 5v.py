@@ -1,12 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import RPi.GPIO as GPIO
 import time
-from pixels import Pixels, pixels
-from alexa_led_pattern import AlexaLedPattern
 from google_home_led_pattern import GoogleHomeLedPattern
+from alexa_led_pattern import AlexaLedPattern
+from pixels import Pixels, pixels
+import RPi.GPIO as GPIO
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
+PORT = 18
 # print message at the begining ---custom function
 
 
@@ -34,7 +35,7 @@ def main():
         pixels.off()
         # GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
-        time.sleep(13)
+        time.sleep(2)
 
         print ('|*****************|')
         print ('|  打开电源...  |')
