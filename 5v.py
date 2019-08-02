@@ -45,7 +45,7 @@ def main():
         LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
         LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
         # 温度大于90给电压
-        if int(humidity) >= 80:
+        if int(humidity) >= 70:
             GPIO.output(RelayPin, True)
             print int(humidity)
 
