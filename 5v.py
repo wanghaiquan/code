@@ -41,7 +41,7 @@ def main():
         humidity, temperature = get_humidity()
         # print humidity, temperature
         LCD1602.write(0, 0, '  F:{0:0.1f}°C      '.format(temperature))
-        LCD1602.write(1, 1, '  H:{1:0.1f}%         '.format(humidity)
+        LCD1602.write(1, 1, '  H:{1:0.1f}%         '.format(humidity))
         LCD1602.clear()
     # while True:
     #     print ('|******************|')
