@@ -23,9 +23,9 @@ def setup():
     GPIO.setup(RelayPin, GPIO.OUT)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '       HI       ')
-    LCD1602.write(1, 1, '   wanghaiquan  ')
+    LCD1602.write(1, 1, '  wanghaiquan  ')
     time.sleep(2)
-    LCD1602.clear()
+
 # 求当前温湿度
 
 
@@ -40,10 +40,11 @@ def main():
     print_message()
     while True:
         humidity, temperature = get_humidity()
+        LCD1602.clear()
         # print humidity, temperature
         LCD1602.write(0, 0, 'F:{0:0.1f}°C      '.format(temperature))
-        LCD1602.write(1, 1, 'H:{1:0.1f}%         '.format(humidity))
-        LCD1602.clear()
+        LCD1602.write(1, 1, 'H:{0:0.1f}%         '.format(humidity))
+
     # while True:
     #     print ('|******************|')
     #     print ('|  ...关闭电源  |')
