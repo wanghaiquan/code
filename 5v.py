@@ -49,7 +49,7 @@ def main():
         pixels.off()
         # GPIO.output(RelayPin, GPIO.LOW)
         GPIO.output(RelayPin, False)
-        time.sleep(2) == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+        time.sleep(2)
 
         print ('|*****************|')
         print ('|  打开电源...  |')
