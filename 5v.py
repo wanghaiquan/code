@@ -5,9 +5,11 @@ from google_home_led_pattern import GoogleHomeLedPattern
 from alexa_led_pattern import AlexaLedPattern
 from pixels import Pixels, pixels
 import RPi.GPIO as GPIO
+import Adafruit_DHT
+
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
-PORT = 18
+HumidityPin = 26
 # print message at the begining ---custom function
 
 
@@ -23,6 +25,12 @@ def setup():
     GPIO.setup(RelayPin, GPIO.OUT)
 
 
+def get_humidity():
+    sensor = Adafruit_DHT.DHT11
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, HumidityPin)
+    return humidity, temperature
+
+
 def main():
     #print info
     print_message()
@@ -30,7 +38,8 @@ def main():
         print ('|******************|')
         print ('|  ...关闭电源  |')
         print ('|******************|\n')
-
+        humidity, temperature = humidity()
+        print humidity, temperature
         # disconnect
         pixels.off()
         # GPIO.output(RelayPin, GPIO.LOW)
