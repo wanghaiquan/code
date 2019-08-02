@@ -38,8 +38,8 @@ def main():
         print ('|******************|')
         print ('|  ...关闭电源  |')
         print ('|******************|\n')
-        humidity, temperature = humidity()
-        print humidity, temperature
+        humidity, temperature = get_humidity()
+        print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
         # disconnect
         pixels.off()
         # GPIO.output(RelayPin, GPIO.LOW)
