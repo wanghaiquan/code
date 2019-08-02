@@ -24,6 +24,8 @@ def setup():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(RelayPin, GPIO.OUT)
 
+# 求当前温湿度
+
 
 def get_humidity():
     sensor = Adafruit_DHT.DHT11
