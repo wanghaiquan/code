@@ -1,9 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import time
-from google_home_led_pattern import GoogleHomeLedPattern
-from alexa_led_pattern import AlexaLedPattern
-from pixels import Pixels, pixels
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 
