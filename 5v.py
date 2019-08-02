@@ -47,6 +47,7 @@ def main():
         # 温度大于90给电压
         if int(temperature) >= 90:
             GPIO.output(RelayPin, True)
+            print int(temperature)
         else:
             GPIO.output(RelayPin, False)
             # while True:
