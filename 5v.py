@@ -44,28 +44,32 @@ def main():
         # print humidity, temperature
         LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
         LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
-
-    # while True:
-    #     print ('|******************|')
-    #     print ('|  ...关闭电源  |')
-    #     print ('|******************|\n')
-    #     humidity, temperature = get_humidity()
-    #     print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
-    #     # disconnect
-    #     pixels.off()
-    #     # GPIO.output(RelayPin, GPIO.LOW)
-    #     GPIO.output(RelayPin, False)
-    #     time.sleep(2)
-    #
-    #     print ('|*****************|')
-    #     print ('|  打开电源...  |')
-    #     print ('|*****************|\n')
-    #     print ('')
-    #     # connect
-    #     pixels.think()
-    #     # GPIO.output(RelayPin, GPIO.HIGH)
-    #     GPIO.output(RelayPin, True)
-    #     time.sleep(1)
+        # 温度大于90给电压
+        if temperature > 90:
+            GPIO.output(RelayPin, True)
+        else:
+            GPIO.output(RelayPin, False)
+            # while True:
+            #     print ('|******************|')
+            #     print ('|  ...关闭电源  |')
+            #     print ('|******************|\n')
+            #     humidity, temperature = get_humidity()
+            #     print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
+            #     # disconnect
+            #     pixels.off()
+            #     # GPIO.output(RelayPin, GPIO.LOW)
+            #     GPIO.output(RelayPin, False)
+            #     time.sleep(2)
+            #
+            #     print ('|*****************|')
+            #     print ('|  打开电源...  |')
+            #     print ('|*****************|\n')
+            #     print ('')
+            #     # connect
+            #     pixels.think()
+            #     # GPIO.output(RelayPin, GPIO.HIGH)
+            #     GPIO.output(RelayPin, True)
+            #     time.sleep(1)
 
 
 def destroy():
