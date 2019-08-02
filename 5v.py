@@ -6,6 +6,7 @@ import Adafruit_DHT
 
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
+# 温控 pin
 HumidityPin = 26
 # print message at the begining ---custom function
 
