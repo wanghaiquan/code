@@ -39,7 +39,7 @@ def main():
     print_message()
     while True:
         humidity, temperature = get_humidity()
-        print humidity, temperature
+        # print humidity, temperature
         space = ''
         greetings = '{0:0.1f}°C  {1:0.1f}%'.format(temperature, humidity)
         greetings = space + greetings
