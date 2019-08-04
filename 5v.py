@@ -4,11 +4,13 @@ import time
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 import lcd1602 as LCD1602
+import redis
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
 # 温控 pin
 HumidityPin = 26
 # print message at the begining ---custom function
+r = redis.Redis(host='192.168.1.4', port=6379, db=0)
 
 
 def print_message():
@@ -39,13 +41,14 @@ def main():
     # print info
     print_message()
     while True:
+        queue = r.brpop('button', 1)
         humidity, temperature = get_humidity()
         LCD1602.clear()
         # print humidity, temperature
         LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
         LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
         # 温度大于90给电压
-        if int(humidity) >= 80:
+        if int(humidity) >= 80 or queue is not None:
             GPIO.output(RelayPin, True)
             print int(humidity)
 
