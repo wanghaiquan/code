@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import redis
-from redis_queue import RedisQueue
 import time
 
 
