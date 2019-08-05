@@ -42,6 +42,12 @@ def main():
     # print info
     print_message()
     while True:
+        queue = r.brpop('button', 1)
+        if queue is not None:
+            GPIO.setup(RelayPin, GPIO.OUT)
+            time.sleep(4)
+            GPIO.setup(RelayPin, GPIO.IN)
+
         if GPIO.input(HumidityPin) == GPIO.LOW:
             GPIO.setup(RelayPin, GPIO.IN)
             print "土壤检测结果：潮湿"
