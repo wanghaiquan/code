@@ -2,13 +2,12 @@
 # -*- coding: utf-8 -*-
 import time
 import RPi.GPIO as GPIO
-import Adafruit_DHT
 import lcd1602 as LCD1602
 import redis
 # set BCM_GPIO 17 as relay pin
 RelayPin = 17
 # 温控 pin
-HumidityPin = 26
+HumidityPin = 21
 # print message at the begining ---custom function
 r = redis.Redis(host='192.168.1.4', port=6379, db=0)
 
@@ -23,6 +22,7 @@ def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(RelayPin, GPIO.IN)
+    GPIO.setup(HumidityPin, GPIO.IN)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '       HI       ')
     LCD1602.write(1, 1, '  wanghaiquan  ')
@@ -39,7 +39,7 @@ def get_humidity():
 
 def main():
     # print info
-
+    print_message()
     while True:
         if GPIO.input(HumidityPin) == GPIO.LOW:
             print "土壤检测结果：潮湿"
@@ -47,7 +47,6 @@ def main():
             print "土壤检测结果：干燥"
         time.sleep(1)
 
-    print_message()
     # while True:
     #     queue = r.brpop('button', 1)
     #     # humidity, temperature = get_humidity()
