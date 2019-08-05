@@ -97,7 +97,7 @@ def main():
 def destroy():
     # turn off relay
     # GPIO.output(RelayPin, GPIO.LOW)
-    GPIO.output(RelayPin, False)
+    # GPIO.output(RelayPin, False)
     # release resource
     GPIO.cleanup()
 
