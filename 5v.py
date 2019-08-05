@@ -41,7 +41,7 @@ def main():
     # print info
 
     while True:
-        if GPIO.input(channel) == GPIO.LOW:
+        if GPIO.input(HumidityPin) == GPIO.LOW:
             print "土壤检测结果：潮湿"
         else:
             print "土壤检测结果：干燥"
