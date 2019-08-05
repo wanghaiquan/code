@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import time
 import RPi.GPIO as GPIO
+import Adafruit_DHT
 import lcd1602 as LCD1602
 import redis
 # set BCM_GPIO 17 as relay pin
