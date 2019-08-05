@@ -53,6 +53,7 @@ def main():
             # GPIO.output(RelayPin, GPIO.HIGH)
             print queue
             time.sleep(4)
+            GPIO.setup(RelayPin, GPIO.IN)
             # print int(humidity)
             # time.sleep(5)
         # 温度大于90给电压
