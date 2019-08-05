@@ -22,7 +22,7 @@ def print_message():
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    # GPIO.setup(RelayPin, GPIO.IN)
+    GPIO.setup(RelayPin, GPIO.IN)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '       HI       ')
     LCD1602.write(1, 1, '  wanghaiquan  ')
@@ -39,6 +39,14 @@ def get_humidity():
 
 def main():
     # print info
+
+    while True:
+        if GPIO.input(channel) == GPIO.LOW:
+            print "土壤检测结果：潮湿"
+        else:
+            print "土壤检测结果：干燥"
+        time.sleep(1)
+
     print_message()
     while True:
         queue = r.brpop('button', 1)
