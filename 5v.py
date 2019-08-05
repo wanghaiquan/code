@@ -47,23 +47,23 @@ def main():
             print "土壤检测结果：干燥"
         time.sleep(1)
 
-    print_message()
-    while True:
-        queue = r.brpop('button', 1)
-        # humidity, temperature = get_humidity()
-        LCD1602.clear()
-        # print humidity, temperature
-        # LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
-        # LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
-        if queue is not None:
-            # GPIO.output(RelayPin, True)
-            GPIO.setup(RelayPin, GPIO.OUT)
-            # GPIO.output(RelayPin, GPIO.HIGH)
-            print queue
-            time.sleep(4)
-            GPIO.setup(RelayPin, GPIO.IN)
-            # print int(humidity)
-            # time.sleep(5)
+    # print_message()
+    # while True:
+    #     queue = r.brpop('button', 1)
+    #     # humidity, temperature = get_humidity()
+    #     LCD1602.clear()
+    #     # print humidity, temperature
+    #     # LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
+    #     # LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
+    #     if queue is not None:
+    #         # GPIO.output(RelayPin, True)
+    #         GPIO.setup(RelayPin, GPIO.OUT)
+    #         # GPIO.output(RelayPin, GPIO.HIGH)
+    #         print queue
+    #         time.sleep(4)
+    #         GPIO.setup(RelayPin, GPIO.IN)
+        # print int(humidity)
+        # time.sleep(5)
         # 温度大于90给电压
         # if int(humidity) >= 80 or queue is not None:
         #     GPIO.output(RelayPin, True)
@@ -71,27 +71,27 @@ def main():
         #
         # else:
         #     GPIO.output(RelayPin, False)
-            # while True:
-            #     print ('|******************|')
-            #     print ('|  ...关闭电源  |')
-            #     print ('|******************|\n')
-            #     humidity, temperature = get_humidity()
-            #     print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
-            #     # disconnect
-            #     pixels.off()
-            #     # GPIO.output(RelayPin, GPIO.LOW)
-            #     GPIO.output(RelayPin, False)
-            #     time.sleep(2)
-            #
-            #     print ('|*****************|')
-            #     print ('|  打开电源...  |')
-            #     print ('|*****************|\n')
-            #     print ('')
-            #     # connect
-            #     pixels.think()
-            #     # GPIO.output(RelayPin, GPIO.HIGH)
-            #     GPIO.output(RelayPin, True)
-            #     time.sleep(1)
+        # while True:
+        #     print ('|******************|')
+        #     print ('|  ...关闭电源  |')
+        #     print ('|******************|\n')
+        #     humidity, temperature = get_humidity()
+        #     print('温度={0:0.1f}°C  湿度={1:0.1f}%'.format(temperature, humidity))
+        #     # disconnect
+        #     pixels.off()
+        #     # GPIO.output(RelayPin, GPIO.LOW)
+        #     GPIO.output(RelayPin, False)
+        #     time.sleep(2)
+        #
+        #     print ('|*****************|')
+        #     print ('|  打开电源...  |')
+        #     print ('|*****************|\n')
+        #     print ('')
+        #     # connect
+        #     pixels.think()
+        #     # GPIO.output(RelayPin, GPIO.HIGH)
+        #     GPIO.output(RelayPin, True)
+        #     time.sleep(1)
 
 
 def destroy():
