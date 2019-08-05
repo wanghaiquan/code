@@ -22,7 +22,7 @@ def print_message():
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(RelayPin, GPIO.IN)
+    GPIO.setup(RelayPin, GPIO.OUT)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '       HI       ')
     LCD1602.write(1, 1, '  wanghaiquan  ')
@@ -51,8 +51,8 @@ def main():
             GPIO.output(RelayPin, True)
 
             print queue
-            print int(humidity)
-            time.sleep(5)
+            # print int(humidity)
+            # time.sleep(5)
         # 温度大于90给电压
         # if int(humidity) >= 80 or queue is not None:
         #     GPIO.output(RelayPin, True)
