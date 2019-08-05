@@ -47,15 +47,17 @@ def main():
         # print humidity, temperature
         LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
         LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
-
-        # 温度大于90给电压
-        if int(humidity) >= 80 or queue is not None:
-
+        if queue is not None:
             GPIO.output(RelayPin, True)
             print int(humidity)
-
-        else:
-            GPIO.output(RelayPin, False)
+            time.sleep(5)
+        # 温度大于90给电压
+        # if int(humidity) >= 80 or queue is not None:
+        #     GPIO.output(RelayPin, True)
+        #     print int(humidity)
+        #
+        # else:
+        #     GPIO.output(RelayPin, False)
             # while True:
             #     print ('|******************|')
             #     print ('|  ...关闭电源  |')
