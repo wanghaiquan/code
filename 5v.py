@@ -46,7 +46,7 @@ def main():
         LCD1602.clear()
         # print humidity, temperature
         # LCD1602.write(0, 0, ' F:{0:0.1f} C'.format(temperature))
-        LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
+        # LCD1602.write(1, 1, 'H:{0:0.1f} %'.format(humidity))
         if queue is not None:
             GPIO.output(RelayPin, True)
 
