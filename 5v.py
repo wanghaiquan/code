@@ -22,8 +22,8 @@ def print_message():
 def setup():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(RelayPin, GPIO.IN)
-    GPIO.setup(HumidityPin, GPIO.IN)
+    GPIO.setup(RelayPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(HumidityPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     LCD1602.init(0x27, 1)  # init(slave address, background light)
     LCD1602.write(0, 0, '       HI       ')
     LCD1602.write(1, 1, '  wanghaiquan  ')
@@ -44,9 +44,9 @@ def main():
     while True:
         queue = r.brpop('button', 1)
         if queue is not None:
-            GPIO.setup(RelayPin, GPIO.OUT)
+            GPIO.output(RelayPin, True)
             time.sleep(4)
-            GPIO.setup(RelayPin, GPIO.IN)
+            GPIO.output(RelayPin, False)
 
         if GPIO.input(HumidityPin) == GPIO.LOW:
             GPIO.setup(RelayPin, GPIO.IN)
