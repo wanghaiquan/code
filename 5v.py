@@ -48,7 +48,7 @@ def main():
             time.sleep(4)
             GPIO.setup(RelayPin, GPIO.IN)
 
-        if GPIO.input(HumidityPin) == GPIO.HIGH:
+        if GPIO.input(HumidityPin) == GPIO.LOW:
             GPIO.setup(RelayPin, GPIO.IN)
             print "土壤检测结果：潮湿"
         else:
