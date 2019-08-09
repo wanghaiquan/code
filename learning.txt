@@ -56,3 +56,17 @@ http://wiringpi.com/download-and-install/
 +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
 | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
 +-----+-----+---------+------+---+---Pi 3B+-+---+------+---------+-----+-----+
+
+
+
+wxpay jsadk
+
+
+const config = {
+  appid: 'wx5569ff9fd5eba48d',
+  mchid: '1544434631',
+  partnerKey: 'fca94d8e77bea71fe8b6ff9f341433f5',
+  // pfx: require('fs').readFileSync('证书文件路径'),
+  notify_url: 'http://www.haiyingjiazheng.cn/buy_callback',
+  spbill_create_ip: '192.144.190.105'
+};
