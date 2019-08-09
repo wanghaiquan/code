@@ -132,7 +132,6 @@ def brake():
 
 def key_scan():
     while GPIO.input(key):
-        print key
         pass
     while not GPIO.input(key):
         time.sleep(0.01)
@@ -165,6 +164,7 @@ try:
         # 以上6种电平状态时小车原地右转
         # 处理右锐角和右直角的转动
         if (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
+            print 'spin_right'
             spin_right(100, 100)
             time.sleep(0.08)
 
@@ -174,35 +174,41 @@ try:
         # 0 X 1 0
         # 处理左锐角和左直角的转动
         elif TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
+            print 'spin_left'
             spin_left(100, 100)
             time.sleep(0.08)
 
         # 0 X X X
         # 最左边检测到
         elif TrackSensorLeftValue1 == False:
+            print 'spin_left'
             spin_left(80, 80)
 
         # X X X 0
         # 最右边检测到
         elif TrackSensorRightValue2 == False:
+            print 'spin_right'
             spin_right(80, 80)
 
         # 四路循迹引脚电平状态
         # X 0 1 X
         # 处理左小弯
         elif TrackSensorLeftValue2 == False and TrackSensorRightValue1 == True:
+            print 'left'
             left(0, 90)
 
         # 四路循迹引脚电平状态
         # X 1 0 X
         # 处理右小弯
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == False:
+            print 'right'
             right(90, 0)
 
         # 四路循迹引脚电平状态
         # X 0 0 X
         # 处理直线
         elif TrackSensorLeftValue2 == False and TrackSensorRightValue1 == False:
+            print 'run'
             run(100, 100)
 
         # 当为1 1 1 1时小车保持上一个小车运行状态
