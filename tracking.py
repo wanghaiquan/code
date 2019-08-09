@@ -132,6 +132,7 @@ def brake():
 
 def key_scan():
     while GPIO.input(key):
+        print key
         pass
     while not GPIO.input(key):
         time.sleep(0.01)
