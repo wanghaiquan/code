@@ -49,7 +49,7 @@ def init():
     GPIO.setup(TrackSensorLeftPin2, GPIO.IN)
     GPIO.setup(TrackSensorRightPin1, GPIO.IN)
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
-    GPIO.setup(TRIG, GPIO.OUT)
+    GPIO.setup(TRIG, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
     pwm_ENA = GPIO.PWM(ENA, 2000)
@@ -61,19 +61,17 @@ def init():
 
 
 def ranging():
-    GPIO.output(TRIG, 0)
-    time.sleep(0.000002)
-    GPIO.output(TRIG, 1)
-    time.sleep(0.00001)
-    GPIO.output(TRIG, 0)
-    while GPIO.input(ECHO) == 0:
-        a = 0
-        time1 = time.time()
-    while GPIO.input(ECHO) == 1:
-        a = 1
-        time2 = time.time()
-        during = time2 - time1
-    return during * 340 / 2 * 100
+    GPIO.output(TRIG, GPIO.HIGH)
+    time.sleep(0.000015)
+    GPIO.output(TRIG, GPIO.LOW)
+    while not GPIO.input(ECHO):
+        pass
+    t1 = time.time()
+    while GPIO.input(ECHO):
+        pass
+    t2 = time.time()
+    return (t2 - t1) * 340 / 2
+
 
 # 小车前进
 
