@@ -194,7 +194,7 @@ try:
         # 处理右锐角和右直角的转动
         if (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
             print 'spin_right'
-            spin_right(dis, dis)
+            spin_right(100, 100)
             time.sleep(0.08)
 
         # 四路循迹引脚电平状态
