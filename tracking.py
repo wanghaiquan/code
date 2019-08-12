@@ -52,8 +52,8 @@ def init():
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
-    pwm_ENA = GPIO.PWM(ENA, 2000)
-    pwm_ENB = GPIO.PWM(ENB, 2000)
+    pwm_ENA = GPIO.PWM(ENA, 5000)
+    pwm_ENB = GPIO.PWM(ENB, 5000)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
 
