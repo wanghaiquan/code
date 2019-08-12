@@ -177,7 +177,7 @@ try:
     init()
     key_scan()
     while True:
-        dis = ranging()
+        dis = int(ranging())
         print dis
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
@@ -194,7 +194,7 @@ try:
         # 处理右锐角和右直角的转动
         if (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
             print 'spin_right'
-            spin_right(100, 100)
+            spin_right(dis, dis)
             time.sleep(0.08)
 
         # 四路循迹引脚电平状态
