@@ -10,6 +10,9 @@ IN4 = 26
 ENA = 16
 ENB = 13
 
+# 超声波感应器
+TRIG = 23
+ECHO = 22
 # 小车按键定义
 key = 8
 
@@ -46,11 +49,31 @@ def init():
     GPIO.setup(TrackSensorLeftPin2, GPIO.IN)
     GPIO.setup(TrackSensorRightPin1, GPIO.IN)
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
+    GPIO.setup(TRIG, GPIO.OUT)
+    GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
     pwm_ENA = GPIO.PWM(ENA, 2000)
     pwm_ENB = GPIO.PWM(ENB, 2000)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
+
+# 测距
+
+
+def ranging():
+    GPIO.output(TRIG, 0)
+    time.sleep(0.000002)
+    GPIO.output(TRIG, 1)
+    time.sleep(0.00001)
+    GPIO.output(TRIG, 0)
+    while GPIO.input(ECHO) == 0:
+        a = 0
+        time1 = time.time()
+    while GPIO.input(ECHO) == 1:
+        a = 1
+        time2 = time.time()
+        during = time2 - time1
+    return during * 340 / 2 * 100
 
 # 小车前进
 
@@ -154,6 +177,8 @@ try:
     init()
     key_scan()
     while True:
+        dis = ranging()
+        print dis
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
         TrackSensorLeftValue1 = GPIO.input(TrackSensorLeftPin1)
