@@ -49,7 +49,7 @@ def init():
     GPIO.setup(TrackSensorLeftPin2, GPIO.IN)
     GPIO.setup(TrackSensorRightPin1, GPIO.IN)
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
-    GPIO.setup(TRIG, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
     pwm_ENA = GPIO.PWM(ENA, 2000)
@@ -60,19 +60,27 @@ def init():
 # 测距
 
 
-def ranging():
-    GPIO.output(TRIG, GPIO.HIGH)
-    time.sleep(0.000015)
-    GPIO.output(TRIG, GPIO.LOW)
-    while not GPIO.input(ECHO):
-        pass
-    t1 = time.time()
-    while GPIO.input(ECHO):
-        pass
-    t2 = time.time()
-    return (t2 - t1) * 340 / 2
+def send_trigger_pulse():
+    GPIO.output(TRIG, True)
+    time.sleep(0.0001)
+    GPIO.output(TRIG, False)
 
 
+def wait_for_echo(value, timeout):
+    count = timeout
+    while GPIO.input(ECHO) != value and count > 0:
+        count = count - 1
+
+
+def distance():
+    send_trigger_pulse()
+    wait_for_echo(True, 10000)
+    start = time.time()
+    wait_for_echo(False, 10000)
+    finish = time.time()
+    pulse_len = finish - start
+    distance_cm = pulse_len / 0.000058
+    return distance_cm
 # 小车前进
 
 
@@ -175,8 +183,7 @@ try:
     init()
     key_scan()
     while True:
-        dis = int(ranging())
-        print dis
+        print("cm = %f" % get_distance())
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
         TrackSensorLeftValue1 = GPIO.input(TrackSensorLeftPin1)
