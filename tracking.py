@@ -183,7 +183,7 @@ try:
     init()
     key_scan()
     while True:
-        print("cm = %f" % get_distance())
+        print("cm = %f" % distance())
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
         TrackSensorLeftValue1 = GPIO.input(TrackSensorLeftPin1)
