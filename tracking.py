@@ -205,7 +205,7 @@ try:
             spin_right(100, 100)
             time.sleep(0.08)
 
-        elif dis < 2 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
+        elif dis < 3 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
             print 'back'
             back(100, 100)
             time.sleep(0.08)
