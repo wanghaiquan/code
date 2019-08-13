@@ -193,6 +193,10 @@ try:
         TrackSensorLeftValue2 = GPIO.input(TrackSensorLeftPin2)
         TrackSensorRightValue1 = GPIO.input(TrackSensorRightPin1)
         TrackSensorRightValue2 = GPIO.input(TrackSensorRightPin2)
+        if dis < 9 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
+            print 'back'
+            back(100, 100)
+            time.sleep(0.08)
 
         # 四路循迹引脚电平状态
         # 0 0 X 0
@@ -200,14 +204,9 @@ try:
         # 0 1 X 0
         # 以上6种电平状态时小车原地右转
         # 处理右锐角和右直角的转动
-        if (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
+        elif (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
             print 'spin_right'
             spin_right(100, 100)
-            time.sleep(0.08)
-
-        elif dis < 9 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
-            print 'back'
-            back(100, 100)
             time.sleep(0.08)
 
         # 四路循迹引脚电平状态
