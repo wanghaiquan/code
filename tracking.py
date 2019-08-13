@@ -52,8 +52,8 @@ def init():
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
-    pwm_ENA = GPIO.PWM(ENA, 5000)
-    pwm_ENB = GPIO.PWM(ENB, 5000)
+    pwm_ENA = GPIO.PWM(ENA, 2000)
+    pwm_ENB = GPIO.PWM(ENB, 2000)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
 
@@ -184,6 +184,7 @@ try:
     key_scan()
     while True:
         print("cm = %f" % distance())
+        dis = distance()
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
         TrackSensorLeftValue1 = GPIO.input(TrackSensorLeftPin1)
@@ -200,6 +201,11 @@ try:
         if (TrackSensorLeftValue1 == False or TrackSensorLeftValue2 == False) and TrackSensorRightValue2 == False:
             print 'spin_right'
             spin_right(100, 100)
+            time.sleep(0.08)
+
+        elif dis < 2 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
+            print 'back'
+            back(100, 100)
             time.sleep(0.08)
 
         # 四路循迹引脚电平状态
