@@ -196,8 +196,8 @@ try:
 
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
         if dis < 9:
-            print 'back'
-            back(100, 100)
+            print 'stop'
+            brake()
             time.sleep(0.08)
 
         # 四路循迹引脚电平状态
