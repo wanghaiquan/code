@@ -184,7 +184,7 @@ try:
     key_scan()
     while True:
         # print("cm = %f" % distance())
-        dis = distance()
+        dis = int(distance())
         print dis
 
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
