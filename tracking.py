@@ -193,6 +193,8 @@ try:
         TrackSensorLeftValue2 = GPIO.input(TrackSensorLeftPin2)
         TrackSensorRightValue1 = GPIO.input(TrackSensorRightPin1)
         TrackSensorRightValue2 = GPIO.input(TrackSensorRightPin2)
+
+        print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
         if dis < 9 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
             print 'back'
             back(100, 100)
