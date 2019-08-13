@@ -199,7 +199,10 @@ try:
             print 'stop'
             brake()
             time.sleep(0.08)
-
+        elif dis < 3:
+            print 'back'
+            back(50, 50)
+            time.sleep(0.08)
         # 四路循迹引脚电平状态
         # 0 0 X 0
         # 1 0 X 0
