@@ -184,7 +184,7 @@ try:
     key_scan()
     while True:
         # print("cm = %f" % distance())
-        dis = int(distance())
+        dis = distance()
         print dis
 
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
@@ -195,7 +195,7 @@ try:
         TrackSensorRightValue2 = GPIO.input(TrackSensorRightPin2)
 
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
-        if dis < 9 and TrackSensorLeftValue1 == False and (TrackSensorRightValue1 == False or TrackSensorRightValue2 == False):
+        if dis < 9:
             print 'back'
             back(100, 100)
             time.sleep(0.08)
