@@ -29,7 +29,7 @@ try:
     # Drawing on the image
     logging.info("Drawing")
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 12)
 
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
@@ -38,7 +38,7 @@ try:
     drawblack = ImageDraw.Draw(HBlackimage)
     drawry = ImageDraw.Draw(HRYimage)
     # drawblack.text((10, 0), 'hello world', font = font24, fill = 0)
-    drawblack.text((150, 25), u'想法、行动、创造', font = font18, fill = 0)
+    drawblack.text((150, 10), u'想法、行动、创造', font = font18, fill = 0)
     drawblack.text((10, 0), u'少儿创客工场', font = font24, fill = 0)
     drawblack.line((20, 50, 70, 100), fill = 0)
     drawblack.line((70, 50, 20, 100), fill = 0)
