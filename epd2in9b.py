@@ -29,15 +29,15 @@ try:
     # Drawing on the image
     logging.info("Drawing")
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16)
-    font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 13)
+    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)
+    font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16)
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
     HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
     HRYimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126  ryimage: red or yellow image
     drawblack = ImageDraw.Draw(HBlackimage)
     drawry = ImageDraw.Draw(HRYimage)
-    drawblack.text((10, 30), u'灵丘九景十八坳餐饮', font = font14, fill = 0)
+    drawblack.text((10, 30), u'灵丘九景十八坳餐饮', font = font16, fill = 0)
     drawblack.text((180, 10), u'想法、行动、创造', font = font18, fill = 0)
     drawblack.text((10, 0), u'少儿创客工场', font = font24, fill = 0)
     drawblack.line((20, 50, 70, 100), fill = 0)
