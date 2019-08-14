@@ -16,6 +16,8 @@ import traceback
 logging.basicConfig(level=logging.DEBUG)
 
 try:
+
+    logging.info(picdir)
     logging.info("epd2in9bc Demo")
 
     epd = epd2in9bc.EPD()
