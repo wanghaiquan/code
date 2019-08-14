@@ -29,8 +29,8 @@ try:
     # Drawing on the image
     logging.info("Drawing")
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)
-    font14 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 13)
+    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16)
+    font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 13)
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
     HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
