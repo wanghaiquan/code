@@ -38,7 +38,7 @@ try:
     drawblack = ImageDraw.Draw(HBlackimage)
     drawry = ImageDraw.Draw(HRYimage)
     drawblack.text((10, 0), 'hello world', font = font24, fill = 0)
-    drawblack.text((10, 20), u'想法、行动、创造', font = font24, fill = 0)
+    drawblack.text((10, 20), u'想法、行动、创造', font = font18, fill = 0)
     drawblack.text((150, 0), u'少儿创客工场', font = font24, fill = 0)
     drawblack.line((20, 50, 70, 100), fill = 0)
     drawblack.line((70, 50, 20, 100), fill = 0)
@@ -53,9 +53,7 @@ try:
 
 
 
-    logging.info("Clear...")
-    epd.init()
-    epd.Clear()
+
 
     logging.info("Goto Sleep...")
     epd.sleep()
