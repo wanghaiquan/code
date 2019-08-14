@@ -181,7 +181,7 @@ time.sleep(2)
 # 从而让except语句捕获异常信息并处理。
 try:
     init()
-    key_scan()
+    # key_scan()
     while True:
         # print("cm = %f" % distance())
         dis = distance()
