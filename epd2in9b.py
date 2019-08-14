@@ -39,7 +39,7 @@ try:
     drawry = ImageDraw.Draw(HRYimage)
     drawblack.text((10, 30), u'灵丘九景十八坳餐饮', font = font16, fill = 0)
     drawblack.text((180, 10), u'想法、行动、创造', font = font18, fill = 0)
-    drawblack.text((10, 0), u'少儿创客工场', font = font24, fill = 0)
+    drawblack.text((10, 0), u'少儿创客空间', font = font24, fill = 0)
     drawblack.line((20, 50, 70, 100), fill = 0)
     drawblack.line((70, 50, 20, 100), fill = 0)
     drawblack.rectangle((20, 50, 70, 100), outline = 0)
