@@ -70,3 +70,26 @@ const config = {
   notify_url: 'http://www.haiyingjiazheng.cn/buy_callback',
   spbill_create_ip: '192.144.190.105'
 };
+
+
+<xml>
+<appid>wx5569ff9fd5eba48d</appid>
+<attach>asdasd</attach>
+<body>asdasd</body>
+<mch_id>1544434631</mch_id>
+<nonce_str>j6rv9858fwj</nonce_str>
+<notify_url>http://www.haiyingjiazheng.cn/buy_callback</notify_url>
+<openid>openid</openid>
+<out_trade_no>20150806125346</out_trade_no>
+<spbill_create_ip>127.0.0.1</spbill_create_ip>
+<total_fee>0.1</total_fee>
+<trade_type>JSAPI</trade_type>
+<sign>575C99C95F92831008BE69837BCE4D87</sign>
+</xml>
+
+墨水屏遇到的问题
+
+spidev 模块需要安装
+pip install spidev
+Pillow 图像处理模块
+pip install Pillow
