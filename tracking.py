@@ -195,14 +195,15 @@ try:
         TrackSensorRightValue2 = GPIO.input(TrackSensorRightPin2)
 
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
-        if dis < 9:
-            print 'stop'
-            brake()
-            time.sleep(0.08)
-        elif dis < 3:
+        if dis < 3:
             print 'back'
             back(100, 100)
             time.sleep(0.08)
+        elif dis < 9:
+            print 'stop'
+            brake()
+            time.sleep(0.08)
+
         # 四路循迹引脚电平状态
         # 0 0 X 0
         # 1 0 X 0
