@@ -37,7 +37,7 @@ try:
     HRYimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126  ryimage: red or yellow image
     drawblack = ImageDraw.Draw(HBlackimage)
     drawry = ImageDraw.Draw(HRYimage)
-    drawblack.text((10, 0), u'⑨景十八坳', font = font24, fill = 0)
+    drawblack.text((10, 24), u'⑨景十八坳', font = font24, fill = 0)
     drawblack.text((180, 10), u'想法、行动、创造', font = font18, fill = 0)
     drawblack.text((10, 0), u'少儿创客工场', font = font24, fill = 0)
     drawblack.line((20, 50, 70, 100), fill = 0)
