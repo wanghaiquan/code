@@ -185,7 +185,7 @@ try:
     while True:
         # print("cm = %f" % distance())
         dis = distance()
-        time.sleep(2)
+        time.sleep(0.5)
 
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
