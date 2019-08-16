@@ -1,3 +1,4 @@
+# coding=utf-8
 from .rotation import Rotation
 import RPi.GPIO as GPIO
 
