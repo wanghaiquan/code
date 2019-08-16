@@ -123,7 +123,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    pwm_frequency(speed)
+    pwm_frequency(rightspeed)
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车右转
