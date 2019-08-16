@@ -63,7 +63,7 @@ class Steering:
     '''
         停止舵机
     '''
-    def cleanup(self):
+    def stop(self):
         self.hRotation.stop()
         # self.vRotation.stop()
         # GPIO.cleanup()

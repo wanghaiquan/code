@@ -121,6 +121,8 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.left()
+    time.sleep(0.2)
+    steering.stop()    
     # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
@@ -134,6 +136,8 @@ def right(leftspeed, rightspeed):
     GPIO.output(IN4, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.right()
+    time.sleep(0.2)
+    steering.stop()
     # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
