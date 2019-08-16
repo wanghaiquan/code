@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
-from  rotation import *
+from lib.steering import Steering
 import time
 
 # 小车电机引脚定义
@@ -56,8 +56,9 @@ def init():
     # 设置pwm引脚和频率为50hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
-    rot = rotation(ENB, 0, 180,GPIO)
-    rot.setup()
+    steering = Steering(17, 0, 180, 18, 0, 160, 90, 90)
+
+    steering.setup()
     # pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     # pwm_ENB.start(0)
