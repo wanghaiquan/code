@@ -81,6 +81,17 @@ def distance():
     pulse_len = finish - start
     distance_cm = pulse_len / 0.000058
     return distance_cm
+
+# 脉冲调节
+
+def pwm_frequency(leftspeed,rightspeed):
+    while True:
+        for i in xrange(0, 101, 2):
+            pwm_ENA.ChangeDutyCycle(i)
+            time.sleep(.03)
+        for i in xrange(100, -1, -2):
+            pwm_ENB.ChangeDutyCycle(i)
+            time.sleep(.03)
 # 小车前进
 
 
@@ -89,6 +100,7 @@ def run(leftspeed, rightspeed):
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
+    pwm_frequency(leftspeed,rightspeed)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     pwm_ENB.ChangeDutyCycle(rightspeed)
 # 小车后退
