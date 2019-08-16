@@ -198,6 +198,12 @@ try:
         if TrackSensorLeftValue1 == True and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True and  TrackSensorRightValue2 == True :
             print 'stop'
             brake()
+        # 右拐
+        # 0 0 1 0
+
+        elif TrackSensorLeftValue1 == False and TrackSensorLeftValue2 == False and TrackSensorRightValue1 == True and TrackSensorRightValue2 == False:
+            print 'right'
+            right(75,75)
         # 处理电机前进
         # 0 1 1 0
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
