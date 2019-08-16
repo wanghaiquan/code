@@ -55,7 +55,7 @@ def init():
     # 设置pwm引脚和频率为2000hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
-    rot = rotation(18, 0, 180)
+    rot = rotation(ENB, 0, 180)
     pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
