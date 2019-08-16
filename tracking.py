@@ -88,7 +88,7 @@ def run(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-
+    pwm_ENB.ChangeDutyCycle(rightspeed)
 # 小车后退
 
 
@@ -192,7 +192,7 @@ try:
 
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
         # 处理电机前进
-        # 1 0 0 1
+        # 0 1 1 0
         if TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
             run(100, 100)
