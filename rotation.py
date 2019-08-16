@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 # 这个类表示单个的SG90模块
-class Rotation:
+class rotation:
     frequency=50 #脉冲频率(Hz)
     delta_theta=0.2 #步进转动间隔(度)
     min_delay=0.0006 #转动delta_theta的理论耗时(s)
@@ -45,32 +45,32 @@ class Rotation:
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(self.channel,GPIO.OUT)
-        self.pwm=GPIO.PWM(self.channel,Rotation.frequency) #PWM
+        self.pwm=GPIO.PWM(self.channel,rotation.frequency) #PWM
         self.dutycycle=2.5+self.init_theta*10/180 #脉冲占空比的初始值
         self.pwm.start(self.dutycycle) #让舵机转到初始位置
-        time.sleep(Rotation.max_delay)
+        time.sleep(rotation.max_delay)
 
-    def positiveRotation(self):
+    def positiverotation(self):
         '''
         正相步进转动，每次调用只转动delta_theta度
         '''
-        self.dutycycle=self.dutycycle+Rotation.delta_theta*10/180
+        self.dutycycle=self.dutycycle+rotation.delta_theta*10/180
         if self.dutycycle>self.max_dutycycle:
             self.dutycycle=self.max_dutycycle
         self.pwm.ChangeDutyCycle(self.dutycycle)
-        time.sleep(Rotation.min_delay)
+        time.sleep(rotation.min_delay)
 
-    def reverseRotation(self):
+    def reverserotation(self):
         '''
         反相转动，每次调用只转动delta_theta度
         '''
-        self.dutycycle=self.dutycycle-Rotation.delta_theta*10/180
+        self.dutycycle=self.dutycycle-rotation.delta_theta*10/180
         if self.dutycycle<self.min_dutycycle:
             self.dutycycle=self.min_dutycycle
         self.pwm.ChangeDutyCycle(self.dutycycle)
-        time.sleep(Rotation.min_delay)
+        time.sleep(rotation.min_delay)
 
-    def specifyRotation(self,theta):
+    def specifyrotation(self,theta):
         '''
         转动到指定的角度
         '''
@@ -78,9 +78,9 @@ class Rotation:
             return
         self.dutycycle=2.5+theta*10/180
         self.pwm.ChangeDutyCycle(self.dutycycle)
-        time.sleep(Rotation.max_delay)
+        time.sleep(rotation.max_delay)
 
     def cleanup(self):
         self.pwm.stop()
-        time.sleep(Rotation.min_delay)
+        time.sleep(rotation.min_delay)
         GPIO.cleanup()
