@@ -1,5 +1,5 @@
 # -*- coding:UTF-8 -*-
-
+import time
 # 这个类表示单个的SG90模块
 class rotation:
     frequency=50 #脉冲频率(Hz)
