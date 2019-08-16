@@ -52,8 +52,8 @@ def init():
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
     # 设置pwm引脚和频率为2000hz
-    pwm_ENA = GPIO.PWM(ENA, 2000)
-    pwm_ENB = GPIO.PWM(ENB, 2000)
+    pwm_ENA = GPIO.PWM(ENA, 50)
+    pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
 
@@ -100,7 +100,7 @@ def run(leftspeed, rightspeed):
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
-    pwm_frequency(leftspeed,rightspeed)
+    # pwm_frequency(leftspeed,rightspeed)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     pwm_ENB.ChangeDutyCycle(rightspeed)
 # 小车后退
