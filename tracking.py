@@ -201,20 +201,20 @@ try:
         # 处理左小弯
         if TrackSensorLeftValue2 == False and TrackSensorRightValue1 == True:
             print 'left'
-            left(0, 90)
+            left(0, 100)
 
         # 四路循迹引脚电平状态
         # X 1 0 X
         # 处理右小弯
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == False:
             print 'right'
-            right(90, 0)
+            right(100, 0)
         # 四路循迹引脚电平状态
         # X 0 0 X
         # 处理直线
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
-            run(90, 90)
+            run(100, 100)
 
         # 四路循迹引脚电平状态
         # 处理小车未检测到黑线
