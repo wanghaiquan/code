@@ -39,7 +39,7 @@ GPIO.setwarnings(False)
 def init():
     global pwm_ENA
     global pwm_ENB
-    global rot
+    global steering
     GPIO.setup(ENA, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN1, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN2, GPIO.OUT, initial=GPIO.LOW)
@@ -56,7 +56,7 @@ def init():
     # 设置pwm引脚和频率为50hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
-    steering = Steering(17, 0, 180, 18, 0, 160, 90, 90)
+    steering = Steering(ENB, 0, 180, 18, 0, 160, 90, 90)
 
     steering.setup()
     # pwm_ENB = GPIO.PWM(ENB, 50)
@@ -91,8 +91,7 @@ def distance():
 # 舵机脉冲调节
 
 def pwm_frequency(speed):
-    for i in range(0,speed):
-        rot.positiveRotation()
+    pass
 # 小车前进
 
 
