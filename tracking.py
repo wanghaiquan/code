@@ -193,7 +193,7 @@ try:
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
         # 处理电机前进
         # 1 0 0 1
-        if TrackSensorLeftValue2 == False and TrackSensorRightValue1 == False:
+        if TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
             run(100, 100)
 
