@@ -7,7 +7,7 @@ class rotation:
     min_delay=0.0006 #转动delta_theta的理论耗时(s)
     max_delay=0.4 #从0转到180的耗时(s)
 
-    def __init__(self,channel,min_theta,max_theta,init_theta=0):
+    def __init__(self,channel,min_theta,max_theta,G,init_theta=0):
         '''
         构造函数：
             channel: 舵机信号线所连接的树莓派引脚编号（BCM编码）
@@ -15,6 +15,7 @@ class rotation:
             max_theta: 舵机转动的最大角度
             init_theta: 舵机的初始角度
         '''
+        self.GPIO = G
         self.channel=channel
         if(min_theta<0 or min_theta>180):
             self.min_theta=0
@@ -42,7 +43,7 @@ class rotation:
         '''
 
 
-        self.pwm=GPIO.PWM(self.channel,rotation.frequency) #PWM
+        self.pwm=self.GPIO.PWM(self.channel,rotation.frequency) #PWM
         self.dutycycle=2.5+self.init_theta*10/180 #脉冲占空比的初始值
         self.pwm.start(self.dutycycle) #让舵机转到初始位置
         time.sleep(rotation.max_delay)
@@ -80,4 +81,4 @@ class rotation:
     def cleanup(self):
         self.pwm.stop()
         time.sleep(rotation.min_delay)
-        GPIO.cleanup()
+        self.GPIO.cleanup()
