@@ -195,6 +195,7 @@ try:
     # key_scan()
     while True:
         print("cm = %f" % distance())
+        dis = int(distance())
 
         # 检测到黑线时循迹模块相应的指示灯亮，端口电平为LOW
         # 未检测到黑线时循迹模块相应的指示灯灭，端口电平为HIGH
@@ -209,6 +210,10 @@ try:
         if TrackSensorLeftValue1 == True and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True and  TrackSensorRightValue2 == True :
             print 'stop'
             brake()
+        # 处理距离 小车后退
+        elif dis < 10:
+            print 'back'
+            back(50, 0)
         # 右拐
         # 0 0 1 0
 
