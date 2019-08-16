@@ -66,4 +66,4 @@ class Steering:
     def cleanup(self):
         self.hRotation.stop()
         # self.vRotation.stop()
-        GPIO.cleanup()
+        # GPIO.cleanup()

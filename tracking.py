@@ -133,6 +133,8 @@ def right(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
+    steering.right()
+    steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车原地左转
