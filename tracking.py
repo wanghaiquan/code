@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
-import rotation
+import rotation as rotation
 import time
 
 # 小车电机引脚定义
