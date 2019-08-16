@@ -86,10 +86,10 @@ def distance():
 
 def pwm_frequency(speed):
   for i in range(0,181,10):
-    pwm_ENB.ChangeDutyCycle(2.5 + 10 * i / speed) #设置转动角度
-    # time.sleep(0.02)                      #等该20ms周期结束
-    # pwm_ENB.ChangeDutyCycle(0)                  #归零信号
-    # time.sleep(0.2)
+    pwm_ENB.ChangeDutyCycle(2.5 + 10 * i / 180) #设置转动角度
+    time.sleep(0.02)                      #等该20ms周期结束
+    pwm_ENB.ChangeDutyCycle(0)                  #归零信号
+    time.sleep(0.2)
 # 小车前进
 
 
@@ -121,7 +121,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    pwm_frequency(180)
+    pwm_frequency('left')
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车右转
