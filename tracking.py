@@ -214,7 +214,7 @@ try:
         # 处理直线
         elif TrackSensorLeftValue2 == False and TrackSensorRightValue1 == False:
             print 'run'
-            run(100, 100)
+            run(50, 50)
 
 except KeyboardInterrupt:
     pass
