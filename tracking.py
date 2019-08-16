@@ -212,7 +212,7 @@ try:
         # 四路循迹引脚电平状态
         # X 0 0 X
         # 处理直线
-        elif TrackSensorLeftValue2 == False and TrackSensorRightValue1 == False:
+    elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
             run(50, 50)
 
