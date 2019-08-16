@@ -1,6 +1,4 @@
 # -*- coding:UTF-8 -*-
-import RPi.GPIO as GPIO
-import time
 
 # 这个类表示单个的SG90模块
 class rotation:
@@ -42,9 +40,8 @@ class rotation:
         '''
         初始化
         '''
-        # GPIO.setmode(GPIO.BCM)
-        # GPIO.setwarnings(False)
-        GPIO.setup(self.channel,GPIO.OUT)
+
+
         self.pwm=GPIO.PWM(self.channel,rotation.frequency) #PWM
         self.dutycycle=2.5+self.init_theta*10/180 #脉冲占空比的初始值
         self.pwm.start(self.dutycycle) #让舵机转到初始位置
