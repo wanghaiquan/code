@@ -43,7 +43,7 @@ def init():
     GPIO.setup(ENA, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN1, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN2, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(ENB, GPIO.OUT, initial=GPIO.HIGH)
+    # GPIO.setup(ENB, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN3, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN4, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(key, GPIO.IN)
@@ -121,7 +121,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.left()
-    steering.cleanup()
+    # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车右转
@@ -134,7 +134,7 @@ def right(leftspeed, rightspeed):
     GPIO.output(IN4, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.right()
-    steering.cleanup()
+    # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车原地左转
