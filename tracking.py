@@ -215,6 +215,13 @@ try:
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
             run(50, 50)
+            
+        # 四路循迹引脚电平状态
+        # 处理小车未检测到黑线
+        # 0 0 0 0
+        elif TrackSensorLeftValue1 == False and TrackSensorLeftValue2 == False and TrackSensorRightValue1 == False and TrackSensorRightValue2 == False:
+            print 'stop'
+            brake(50, 50)
 
 except KeyboardInterrupt:
     pass
