@@ -218,7 +218,7 @@ try:
         # 四路循迹引脚电平状态
         # 处理小车未检测到黑线
         # 0 0 0 0
-    elif TrackSensorLeftValue1 == True and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True and TrackSensorRightValue2 == True:
+        elif TrackSensorLeftValue1 == True and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True and TrackSensorRightValue2 == True:
             print 'stop'
             brake()
 
