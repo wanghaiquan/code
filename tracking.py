@@ -193,9 +193,14 @@ try:
         TrackSensorRightValue2 = GPIO.input(TrackSensorRightPin2)
 
         print TrackSensorLeftValue1, TrackSensorLeftValue2, TrackSensorRightValue1, TrackSensorRightValue2
+        # 处理未发现黑线
+        # 1 1 1 1
+        if TrackSensorLeftValue1 == True and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True and  TrackSensorRightValue2 == True :
+            print 'stop'
+            brake()
         # 处理电机前进
         # 0 1 1 0
-        if TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
+        elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
             run(100, 100)
 
