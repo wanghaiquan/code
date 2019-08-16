@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 # 这个类表示单个的SG90模块
-class Rotation:
+class rotation:
     frequency=50 #脉冲频率(Hz)
     delta_theta=0.2 #步进转动间隔(度)
     min_delay=0.0006 #转动delta_theta的理论耗时(s)
