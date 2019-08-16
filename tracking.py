@@ -53,7 +53,7 @@ def init():
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
-    # 设置pwm引脚和频率为2000hz
+    # 设置pwm引脚和频率为50hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
     rot = rotation(ENB, 0, 180,GPIO)
@@ -235,5 +235,5 @@ try:
 except KeyboardInterrupt:
     pass
 pwm_ENA.stop()
-pwm_ENB.stop()
+# pwm_ENB.stop()
 GPIO.cleanup()
