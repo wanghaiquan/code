@@ -39,6 +39,7 @@ GPIO.setwarnings(False)
 def init():
     global pwm_ENA
     global pwm_ENB
+    global rot
     GPIO.setup(ENA, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN1, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN2, GPIO.OUT, initial=GPIO.LOW)
@@ -56,6 +57,7 @@ def init():
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
     rot = rotation(ENB, 0, 180)
+    rot.setup()
     pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
@@ -88,11 +90,8 @@ def distance():
 # 舵机脉冲调节
 
 def pwm_frequency(speed):
-  for i in range(0,181,10):
-    pwm_ENB.ChangeDutyCycle(2.5 + 10 * i / 180) #设置转动角度
-    time.sleep(0.02)                      #等该20ms周期结束
-    pwm_ENB.ChangeDutyCycle(0)                  #归零信号
-    time.sleep(0.2)
+    for i in range(0,speed):
+        rot.positiveRotation()
 # 小车前进
 
 
@@ -124,7 +123,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    pwm_frequency('left')
+    pwm_frequency(speed)
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车右转
