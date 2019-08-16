@@ -57,6 +57,7 @@ def init():
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
     steering = Steering(ENB, 0, 180, 18, 0, 160, 90, 90)
+    steering.setup()
 
     # pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
@@ -119,7 +120,6 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    steering.setup()
     steering.left()
     time.sleep(0.2)
     steering.stop()
@@ -135,7 +135,6 @@ def right(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    steering.setup()
     steering.right()
     time.sleep(0.2)
     steering.stop()
