@@ -52,6 +52,10 @@ def init():
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
+    rot = Rotation(ENB, 0, 180)
+    rot.setup()
+    for i in range(0,900):
+        rot.positiveRotation()
     # 设置pwm引脚和频率为2000hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     pwm_ENB = GPIO.PWM(ENB, 50)
