@@ -88,10 +88,7 @@ def distance():
     distance_cm = pulse_len / 0.000058
     return distance_cm
 
-# 舵机脉冲调节
 
-def pwm_frequency(speed):
-    pass
 # 小车前进
 
 
@@ -123,7 +120,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    pwm_frequency(rightspeed)
+    steering.left()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车右转
