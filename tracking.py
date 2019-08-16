@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
-import rotation as Rotation
+import rotation
 import time
 
 # 小车电机引脚定义
@@ -52,7 +52,7 @@ def init():
     GPIO.setup(TrackSensorRightPin2, GPIO.IN)
     GPIO.setup(TRIG, GPIO.OUT)
     GPIO.setup(ECHO, GPIO.IN)
-    rot = Rotation(ENB, 0, 180)
+    rot = rotation(ENB, 0, 180)
     rot.setup()
     for i in range(0,900):
         rot.positiveRotation()
