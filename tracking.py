@@ -201,9 +201,8 @@ try:
         # 处理距离 小车后退
         elif dis < 10:
             print 'back'
-            brake()
             time.sleep(0.5)
-            back(75, 0)
+            back(50, 0)
         # 右拐
         # 0 0 1 0
 
