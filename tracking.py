@@ -219,12 +219,12 @@ try:
 
         elif TrackSensorLeftValue1 == False and TrackSensorLeftValue2 == False and TrackSensorRightValue1 == True and TrackSensorRightValue2 == False:
             print 'right'
-            right(75,75)
+            right(0,75)
         # 左拐
         # 0 1 0 0
         elif TrackSensorLeftValue1 == False and TrackSensorLeftValue2 == True and TrackSensorRightValue1 == False and TrackSensorRightValue2 == False:
             print 'left'
-            left(75,75)
+            left(0,75)
         # 处理电机前进
         # 0 1 1 0
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
