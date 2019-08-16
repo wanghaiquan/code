@@ -229,7 +229,7 @@ try:
         # 0 1 1 0
         elif TrackSensorLeftValue2 == True and TrackSensorRightValue1 == True:
             print 'run'
-            run(100, 0)
+            run(50, 0)
 
 except KeyboardInterrupt:
     pass
