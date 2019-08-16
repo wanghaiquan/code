@@ -201,7 +201,7 @@ try:
         # 处理距离 小车后退
         elif dis < 10:
             print 'back'
-            back()
+            back(100, 0)
         # 右拐
         # 0 0 1 0
 
