@@ -43,7 +43,7 @@ def init():
     GPIO.setup(ENA, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN1, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN2, GPIO.OUT, initial=GPIO.LOW)
-    GPIO.setup(ENB, GPIO.OUT, initial=GPIO.HIGH)
+    # GPIO.setup(ENB, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(IN3, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(IN4, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(key, GPIO.IN)
@@ -58,9 +58,9 @@ def init():
     # 舵机
     rot = rotation(ENB, 0, 180)
     rot.setup()
-    pwm_ENB = GPIO.PWM(ENB, 50)
+    # pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
-    pwm_ENB.start(0)
+    # pwm_ENB.start(0)
 
 # 测距
 

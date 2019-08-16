@@ -42,8 +42,8 @@ class rotation:
         '''
         初始化
         '''
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setwarnings(False)
+        # GPIO.setmode(GPIO.BCM)
+        # GPIO.setwarnings(False)
         GPIO.setup(self.channel,GPIO.OUT)
         self.pwm=GPIO.PWM(self.channel,rotation.frequency) #PWM
         self.dutycycle=2.5+self.init_theta*10/180 #脉冲占空比的初始值
