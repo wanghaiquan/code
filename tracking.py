@@ -183,7 +183,7 @@ try:
     init()
     # key_scan()
     while True:
-        print("cm = %f" % distance())
+        # print("cm = %f" % distance())
         dis = distance()
         time.sleep(0.03)
 
