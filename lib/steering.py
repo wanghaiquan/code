@@ -19,12 +19,12 @@ class Steering:
     def __init__(self, channelH, min_angleH, max_angleH,
                  channelV, min_angleV, max_angleV, init_angleH=0, init_angleV=0):
         self.hRotation = Rotation(channelH, min_angleH, max_angleH, init_angleH)
-        self.vRotation = Rotation(channelV, min_angleV, max_angleV, init_angleV)
+        # self.vRotation = Rotation(channelV, min_angleV, max_angleV, init_angleV)
 
     def setup(self):
         GPIO.setwarnings(False)
         self.hRotation.setup()
-        self.vRotation.setup()
+        # self.vRotation.setup()
 
     '''
         向上步进转动
@@ -65,5 +65,5 @@ class Steering:
     '''
     def cleanup(self):
         self.hRotation.stop()
-        self.vRotation.stop()
+        # self.vRotation.stop()
         GPIO.cleanup()
