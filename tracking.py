@@ -58,7 +58,7 @@ def init():
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
     steering = sg90( ENB, 0 )
-    steering.setdirection( 0, 50 )
+    steering.setdirection( 0, 5 )
     # pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     # pwm_ENB.start(0)
