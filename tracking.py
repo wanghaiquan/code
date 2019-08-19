@@ -56,7 +56,7 @@ def init():
     # 设置pwm引脚和频率为50hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
-    steering = Steering(ENB, 0, 180, 18, 0, 160, 90, 90)
+    steering = Steering(ENB, 0, 90, 18, 0, 90, 90, 90)
     steering.setup()
 
     # pwm_ENB = GPIO.PWM(ENB, 50)
