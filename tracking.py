@@ -122,6 +122,7 @@ def left(leftspeed, rightspeed):
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.left()
     time.sleep(0.2)
+    steering.stop()
     # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
@@ -136,7 +137,7 @@ def right(leftspeed, rightspeed):
     pwm_ENA.ChangeDutyCycle(leftspeed)
     steering.right()
     time.sleep(0.2)
-    # steering.cleanup()
+    steering.stop()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车原地左转
