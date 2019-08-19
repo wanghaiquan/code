@@ -16,8 +16,7 @@ class Steering:
         init_angleH: 水平舵机初始转角
         init_angleV: 垂直舵机初始转角
     '''
-    def __init__(self, channelH, min_angleH, max_angleH,
-                 channelV, min_angleV, max_angleV, init_angleH=0, init_angleV=0):
+    def __init__(self, channelH, min_angleH, max_angleH, init_angleH=0, init_angleV=0):
         self.hRotation = Rotation(channelH, min_angleH, max_angleH, init_angleH)
         # self.vRotation = Rotation(channelV, min_angleV, max_angleV, init_angleV)
 
