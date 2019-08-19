@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
-from raspi_sg90 import *
+from lib.raspi_sg90 import *
 import threading
 import time
 
