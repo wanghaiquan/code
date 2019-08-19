@@ -1,6 +1,7 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
-from lib.steering import Steering
+from raspi_sg90 import *
+import threading
 import time
 
 # 小车电机引脚定义
@@ -56,9 +57,8 @@ def init():
     # 设置pwm引脚和频率为50hz
     pwm_ENA = GPIO.PWM(ENA, 50)
     # 舵机
-    steering = Steering(ENB,20,20)
-    steering.setup()
-
+    steering = sg90( ENB, 0 )
+    steering.setdirection( 0, 50 )
     # pwm_ENB = GPIO.PWM(ENB, 50)
     pwm_ENA.start(0)
     # pwm_ENB.start(0)
@@ -120,9 +120,7 @@ def left(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.HIGH)
     GPIO.output(IN4, GPIO.LOW)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    steering.left()
-    time.sleep(0.2)
-    steering.stop()
+
     # steering.cleanup()
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
@@ -135,9 +133,7 @@ def right(leftspeed, rightspeed):
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.HIGH)
     pwm_ENA.ChangeDutyCycle(leftspeed)
-    steering.right()
-    time.sleep(0.2)
-    steering.stop()
+
     # pwm_ENB.ChangeDutyCycle(rightspeed)
 
 # 小车原地左转
