@@ -10,7 +10,7 @@ RelayPin = 17
 # 温控 pin
 HumidityPin = 21
 # print message at the begining ---custom function
-r = redis.Redis(host='192.168.1.4', port=6379, db=0)
+r = redis.Redis(host='192.168.1.9', port=6379, db=0)
 
 
 def print_message():
@@ -43,6 +43,7 @@ def main():
     print_message()
     while True:
         queue = r.brpop('button', 1)
+
         if queue is not None:
             GPIO.setup(RelayPin, GPIO.OUT)
             time.sleep(4)
