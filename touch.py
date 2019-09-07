@@ -38,6 +38,7 @@ def buzzer_off():
 def read_touchsensor():
     touchstatus = GPIO.input(touch)
     if (touchstatus == True):
+        buzzer_off()
         print "未触摸"
 
 
