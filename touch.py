@@ -20,14 +20,15 @@ touchstatus = False
 
 def read_touchsensor():
     global touchstatus
+    print touchstatus
     if (GPIO.input(touch) == True):
         touchstatus = not touchstatus
         if touchstatus:
-            print"Turn on relay"
+            # print"Turn on relay"
             print"\n"
 
         else:
-            print"Turn off relay"
+            # print"Turn off relay"
             print"\n"
     pass
 
