@@ -16,20 +16,15 @@ def init():
     pass
 
 # read digital touch sensor
-touchstatus = False
+touchstatus = GPIO.input(touch)
 
 def read_touchsensor():
-    global touchstatus
     print touchstatus
-    if (GPIO.input(touch) == True):
-        touchstatus = not touchstatus
-        if touchstatus:
-            # print"Turn on relay"
-            print"\n"
+    if (touchstatus == True):
+        print"Turn on relay"
 
-        else:
-            # print"Turn off relay"
-            print"\n"
+    else:
+        print"Turn off relay"
     pass
 
 
