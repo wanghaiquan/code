@@ -6,7 +6,7 @@ import os
 
 # sensor pin define
 touch = 18
-touchstatus = False
+
 
 
 def init():
@@ -16,7 +16,7 @@ def init():
     pass
 
 # read digital touch sensor
-
+touchstatus = False
 
 def read_touchsensor():
     global touchstatus
