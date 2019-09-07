@@ -22,12 +22,14 @@ def read_touchsensor():
                   if touchstatus:
                            print"Turn on relay"
          print"\n"
-                           buzzer_on()
-                           relay_on()
+                           # buzzer_on()
+                           # relay_on()
+                           print "on"
 
                   else:
                            print"Turn off relay"
          print"\n"
+                            print "off"
                            # buzzer_on()
                            # relay_off()
          pass
