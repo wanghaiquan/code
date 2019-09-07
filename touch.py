@@ -25,12 +25,10 @@ def read_touchsensor():
         if touchstatus:
             print"Turn on relay"
             print"\n"
-            print "on"
 
         else:
             print"Turn off relay"
             print"\n"
-            print "off"
     pass
 
 
