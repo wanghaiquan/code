@@ -5,7 +5,7 @@ import time
 import os
 
 # sensor pin define
-touch_pin = 18
+touch = 18
 touchstatus = False
 
 
