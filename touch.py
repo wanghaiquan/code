@@ -40,7 +40,9 @@ def read_touchsensor():
     if (touchstatus == True):
         print "未触摸"
 
+
     else:
+        buzzer_on()
         print "已触摸"
     pass
 
