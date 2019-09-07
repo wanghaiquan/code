@@ -19,8 +19,6 @@ def init():
 
 # turn on buzzer
 def buzzer_on():
-    GPIO.output(buzzer, GPIO.LOW)
-    time.sleep(0.2)
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.2)
     pass
@@ -28,7 +26,7 @@ def buzzer_on():
 
 
 def buzzer_off():
-    GPIO.output(buzzer, GPIO.HIGH)
+    GPIO.output(buzzer, GPIO.LOW)
     pass
 
 
