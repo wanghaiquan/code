@@ -6,14 +6,31 @@ import os
 
 # sensor pin define
 touch = 18
-
+buzzer = 24
 
 
 def init():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buzzer, GPIO.OUT)
     GPIO.setup(touch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     pass
+
+
+# turn on buzzer
+def buzzer_on():
+    GPIO.output(buzzer, GPIO.LOW)
+    time.sleep(0.2)
+    GPIO.output(buzzer, GPIO.HIGH)
+    time.sleep(0.2)
+    pass
+# turn off buzzer
+
+
+def buzzer_off():
+    GPIO.output(buzzer, GPIO.HIGH)
+    pass
+
 
 # read digital touch sensor
 
