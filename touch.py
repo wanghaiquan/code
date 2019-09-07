@@ -21,10 +21,10 @@ def init():
 def read_touchsensor():
     touchstatus = GPIO.input(touch)
     if (touchstatus == True):
-        print"Turn on relay"
+        print "未触摸"
 
     else:
-        print"Turn off relay"
+        print "已触摸"
     pass
 
 
