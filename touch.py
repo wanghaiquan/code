@@ -5,8 +5,8 @@ import time
 import os
 
 # sensor pin define
-touch = 18
-buzzer = 24
+touch   = 18
+buzzer  = 24
 
 
 def init():
