@@ -34,6 +34,7 @@ def buzzer_off():
 touchstatus = False
 
 def read_touchsensor():
+    global touchstatus
     touchstatus = GPIO.input(touch)
     if (touchstatus == True):
         buzzer_off()
