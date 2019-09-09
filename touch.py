@@ -36,16 +36,21 @@ button_touch = False
 def read_touchsensor():
     global button_touch
     touchstatus = GPIO.input(touch)
-    if (button_touch == True):
-        buzzer_off()
-        button_touch  = True
-        print "未触摸"
-
-
+    if（touchstatus == True):
+        print 'on'
     else:
-        buzzer_on()
-        button_touch = False
-        print "已触摸"
+        print 'off'
+    # 
+    # if (button_touch == True):
+    #     buzzer_on()
+    #     button_touch  = True
+    #     print "已触摸"
+    #
+    #
+    # else:
+    #     buzzer_off()
+    #     button_touch = False
+    #     print "未触摸"
     pass
 
 
