@@ -12,7 +12,7 @@ buzzer  = 24
 def init():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(buzzer, GPIO.IN)
+    GPIO.setup(buzzer, GPIO.OUT)
     GPIO.setup(touch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     pass
 
@@ -36,12 +36,16 @@ button_touch = False
 def read_touchsensor():
     global button_touch
     touchstatus = GPIO.input(touch)
-    if (button_touch == False ):
-        print 'off'
-    else:
-        buzzer_on()
-        button_touch = True
-        print 'on'
+    if (touchstatus == False ):
+
+        if (button_touch == False ):
+            buzzer_on()
+            button_touch = True
+        else:
+            buzzer_off()
+            button_touch = False
+            print 'on'
+    pass
     #
     # if (button_touch == True):
     #     buzzer_on()
@@ -53,7 +57,6 @@ def read_touchsensor():
     #     buzzer_off()
     #     button_touch = False
     #     print "未触摸"
-    pass
 
 
 
