@@ -12,7 +12,7 @@ buzzer  = 24
 def init():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(buzzer, GPIO.OUT)
+    GPIO.setup(buzzer, GPIO.IN)
     GPIO.setup(touch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     pass
 
