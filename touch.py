@@ -36,6 +36,7 @@ button_touch = False
 def read_touchsensor():
     global button_touch
     touchstatus = GPIO.input(touch)
+    print touchstatus
     if (touchstatus == False ):
         print 'buttton on '
         if (button_touch == False ):
