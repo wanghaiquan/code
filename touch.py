@@ -5,8 +5,8 @@ import time
 import os
 
 # sensor pin define
-touch   = 18
-buzzer  = 24
+touch = 18
+buzzer = 24
 
 
 def init():
@@ -16,8 +16,9 @@ def init():
     GPIO.setup(touch, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     pass
 
-
 # turn on buzzer
+
+
 def buzzer_on():
     GPIO.output(buzzer, GPIO.HIGH)
     time.sleep(0.2)
@@ -34,7 +35,6 @@ def buzzer_off():
 
 def read_touchsensor():
     touchstatus = GPIO.input(touch)  #   按住  0  不按 1
-
     if (touchstatus == False):
         buzzer_on()
         print "已触摸"
@@ -42,7 +42,6 @@ def read_touchsensor():
 
     else:
         buzzer_off()
-        button_touch = False
         print "未触摸"
 
     pass
