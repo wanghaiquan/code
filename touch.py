@@ -37,7 +37,7 @@ def read_touchsensor():
     touchstatus = GPIO.input(touch)  #   按住  0  不按 1
 
     if (touchstatus == False ):
-        if( button_touch == False):
+        if (button_touch == False):
             buzzer_on()
             button_touch == True
         else:
