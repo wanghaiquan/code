@@ -36,7 +36,7 @@ mqttc.on_log = on_log
 
 
 mqttc.connect("192.144.190.105", 8083, 60)
-mqttc.subscribe("$SYS/mqtt/light", 0)
+mqttc.subscribe("mqtt/light", 0)
 mqttc.loop_forever()
 # end
 
