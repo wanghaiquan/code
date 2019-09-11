@@ -61,8 +61,10 @@ def on_message(mqttc, obj, msg):
     message = json.loads(msg.payload)
 
     if(message == 'on'):
+        print('message_on')
         buzzer_on()
     else:
+        print('message_off')
         buzzer_off()
 
     print(message['button'])
