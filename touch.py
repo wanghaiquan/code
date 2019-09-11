@@ -60,7 +60,11 @@ def on_message(mqttc, obj, msg):
     print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
     message = json.loads(msg.payload)
 
-
+    if(message == 'on'):
+        buzzer_on()
+    else:
+        buzzer_off()
+        
     print(message['button'])
 
 def on_publish(mqttc, obj, mid):
