@@ -10,31 +10,7 @@ import json
 touch = 18
 buzzer = 24
 
-# mqtt function
 
-def on_connect(mqttc, obj, flags, rc):
-    print("rc: "+str(rc))
-
-def on_message(mqttc, obj, msg):
-    print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
-    message = json.loads(msg.payload)
-
-    if(message == 'on'):
-        buzzer_on()
-    else:
-        buzzer_off()
-
-    print(message['button'])
-
-def on_publish(mqttc, obj, mid):
-    print("mid: "+str(mid))
-
-def on_subscribe(mqttc, obj, mid, granted_qos):
-    print("Subscribed: "+str(mid)+" "+str(granted_qos))
-
-def on_log(mqttc, obj, level, string):
-    print(string)
-# end
 
 def init():
 
@@ -75,12 +51,39 @@ def read_touchsensor():
 
     pass
 
+# mqtt function
 
+def on_connect(mqttc, obj, flags, rc):
+    print("rc: "+str(rc))
+
+def on_message(mqttc, obj, msg):
+    print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
+    message = json.loads(msg.payload)
+
+    if(message == 'on'):
+        buzzer_on()
+    else:
+        buzzer_off()
+
+    print(message['button'])
+
+def on_publish(mqttc, obj, mid):
+    print("mid: "+str(mid))
+
+def on_subscribe(mqttc, obj, mid, granted_qos):
+    print("Subscribed: "+str(mid)+" "+str(granted_qos))
+
+def on_log(mqttc, obj, level, string):
+    print(string)
+# end
 
 
 
 # main loop
 def main():
+    init()
+    print"...................................................................System initializing..."
+
     mqttc = mqtt.Client(transport="websockets")
     mqttc.on_message = on_message
     mqttc.on_connect = on_connect
@@ -94,8 +97,7 @@ def main():
     mqttc.subscribe("mqtt/light", 0)
     mqttc.loop_forever()
 
-    print"...................................................................System initializing..."
-    init()
+
     buzzer_off()
     # relay_off()
     print"...................................................................Ok"
