@@ -103,10 +103,11 @@ def main():
     print"...................................................................Ok"
     print"...................................................................Please touch"
     print"\n"
-    mqttc.loop_forever()
+
     while True:
         read_touchsensor()
-
+        
+    mqttc.loop_forever()
 
 if __name__ == '__main__':
     try:
