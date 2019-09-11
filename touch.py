@@ -95,7 +95,7 @@ def main():
 
     mqttc.connect("192.144.190.105", 8083, 60)
     mqttc.subscribe("mqtt/light", 0)
-    mqttc.loop_forever()
+
 
 
     buzzer_off()
@@ -103,6 +103,7 @@ def main():
     print"...................................................................Ok"
     print"...................................................................Please touch"
     print"\n"
+    mqttc.loop_forever()
     while True:
         read_touchsensor()
 
