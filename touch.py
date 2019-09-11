@@ -4,6 +4,7 @@ import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
 import time
 import os
+import json
 
 # sensor pin define
 touch = 18
@@ -16,7 +17,8 @@ def on_connect(mqttc, obj, flags, rc):
 
 def on_message(mqttc, obj, msg):
     print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
-    print(str(msg.payload))
+    message = json.loads(msg.payload)
+    print(str(message)
 
 def on_publish(mqttc, obj, mid):
     print("mid: "+str(mid))
